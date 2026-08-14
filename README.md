@@ -4,11 +4,11 @@ TECNICATURA UNIVERSITARIA EN DESARROLLO WEB-  2026 2do cuatrimestre
 ## "Veterinaria La Mary"
 
 ### Integrantes Grupo 10:
-*Guadalupe Cristina Chalup
-*Braian Galvan
-*Yanina Gisel Galvan
-*María Belen Hermida
-*Sonia Monte
+* Guadalupe Cristina Chalup
+* Braian Galvan
+* Yanina Gisel Galvan
+* María Belen Hermida
+* Sonia Monte
 
 ## Enlace a GITHUB
 
