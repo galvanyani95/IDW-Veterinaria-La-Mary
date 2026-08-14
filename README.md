@@ -1,2 +1,4 @@
 # introduccion-desarrollo-web
-TECNICATURA UNIVERSITARIA EN DESARROLLO WEB-  2026 2do cuatrimestre
+TECNICATURA UNIVERSITARIA EN DESARROLLO WEB-  2026 2do cuatrimestre- grupo 10
+"Veterinaria La Mary"
+Integrantes:
