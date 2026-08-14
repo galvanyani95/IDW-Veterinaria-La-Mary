@@ -21,24 +21,23 @@ Para realizarlo vamos a utilizar HTML, CSS, JavaScript y Bootstrap, guardando al
 
 ##  Registrar los siguientes datos:
    ## De las Mascotas:
-. idMascota: string con uid identificatorio.
-. nombreMascota: string.
-. nombreDuenio: string.
-. color: string.
-. edad: número entero.
-. peso: número decimal.
-. imagenMascota: string con la imagen en formato Base64.      
-  ## De los Veterinarios:
-              
- idVeterinario: string con uid identificatorio.
- matricula: número entero.
- nombre: string.
- especializacion: string.
- valorConsulta: número decimal.
-De los Turnos:
- idTurno: string con uid identificatorio.
- fechaHora: fecha y hora del turno.
- mascota: identificador de la entidad Mascota.
- veterinario: identificador de la entidad Veterinario.
+* idMascota: string con uid identificatorio.
+* nombreMascota: string.
+* nombreDuenio: string.
+* color: string.
+* edad: número entero.
+* peso: número decimal.
+* imagenMascota: string con la imagen en formato Base64.      
+    ## De los Veterinarios:            
+* idVeterinario: string con uid identificatorio.
+* matricula: número entero.
+* nombre: string.
+* especializacion: string.
+* valorConsulta: número decimal.
+    ## De los Turnos:
+* idTurno: string con uid identificatorio.
+* fechaHora: fecha y hora del turno.
+* mascota: identificador de la entidad Mascota.
+* veterinario: identificador de la entidad Veterinario.
 
-## Visitante: 
+     ## Visitante: 
