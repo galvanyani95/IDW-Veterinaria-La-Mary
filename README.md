@@ -1,7 +1,5 @@
 # introduccion-desarrollo-web
-TECNICATURA UNIVERSITARIA EN DESARROLLO WEB-  2026 2do cuatrimestre
-
-## "Veterinaria La Mary"
+   "Veterinaria La Mary"
 
 ### Integrantes Grupo 10:
 * Guadalupe Cristina Chalup
