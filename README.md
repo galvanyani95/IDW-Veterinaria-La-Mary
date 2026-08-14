@@ -39,5 +39,10 @@ Para realizarlo vamos a utilizar HTML, CSS, JavaScript y Bootstrap, guardando al
 * fechaHora: fecha y hora del turno.
 * mascota: identificador de la entidad Mascota.
 * veterinario: identificador de la entidad Veterinario.
-
+  ## De la Historia Clínica:
+* idHistoriaClinica: string con uid identificatorio.
+* mascota: identificador de la entidad Mascota (a quién pertenece).
+* veterinario: identificador de la entidad Veterinario (quién atendió).
+* fechaHora: fecha y hora de la atención.
+* observaciones: string (notas libres del profesional).
      ## Visitante: 
