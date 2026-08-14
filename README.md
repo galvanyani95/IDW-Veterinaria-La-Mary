@@ -45,4 +45,35 @@ Para realizarlo vamos a utilizar HTML, CSS, JavaScript y Bootstrap, guardando al
 * veterinario: identificador de la entidad Veterinario (quién atendió).
 * fechaHora: fecha y hora de la atención.
 * observaciones: string (notas libres del profesional).
-     ## Visitante: 
+  ## REQUERIMIENTOS
+Se debe contar con interfaces de usuario interactivas que permitan acceder a las siguientes
+opciones:
+   ## veterinaria (Rol Visitante)
+* Portada, incluyendo el listado de profesionales disponibles con su especialización y valor de
+consulta
+* Información institucional
+* Contacto
+
+   ## Administradores de la veterinaria (Rol Administrador)
+ * Para todas las entidades:
+   o Listar en formato tabla los datos registrados.
+   
+* En referencia a los Veterinarios:
+   o Registrar uno nuevo.
+   o Editar los datos de uno existente.
+   o Eliminar un veterinario.
+  
+* En referencia a las Mascotas:
+   o Registrar una nueva.
+   o Editar los datos de una existente.
+   o Eliminar una mascota.
+
+* En referencia a los Turnos:
+   o Registrar nuevos turnos para cada veterinario.
+   o Eliminar turnos existentes.
+
+* En referencia a la Historia Clínica:
+   o Registrar nuevas entradas asociadas a una mascota y un veterinario.
+   o Visualizar el historial completo de una mascota
+
+  ## OPCIONALES VALORABLES
