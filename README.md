@@ -1,6 +1,5 @@
 # introduccion-desarrollo-web
    "Veterinaria La Mary"
-
 ### Integrantes Grupo 10:
 * Guadalupe Cristina Chalup
 * Braian Galvan
