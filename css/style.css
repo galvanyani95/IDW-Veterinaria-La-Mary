@@ -163,7 +163,6 @@ nav a:hover, nav a.active {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
-/* Estilos de la imagen lateral */
 .tarjeta-horizontal .tarjeta-img {
   width: 40%; 
   height: 100%;
@@ -172,7 +171,6 @@ nav a:hover, nav a.active {
   flex-shrink: 0;
 }
 
-/* Estilos del texto contenedor */
 .tarjeta-cuerpo {
   padding: 2rem;
   width: 60%;
@@ -215,3 +213,112 @@ footer {
     font-size: 0.9rem;
 }
 
+main:has(form button[type="submit"]) {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+main:has(form button[type="submit"]) > section:first-of-type {
+    grid-column: 1 / -1;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 10px auto;
+}
+
+main:has(form button[type="submit"]) > section:first-of-type p {
+    font-size: 1.1rem;
+    color: #4a5568;
+    margin-bottom: 10px;
+}
+
+main:has(form button[type="submit"]) > section:nth-of-type(2) {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+main:has(form button[type="submit"]) ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+main:has(form button[type="submit"]) ul li {
+    font-size: 1.05rem;
+    margin-bottom: 15px;
+    color: #4a5568;
+}
+
+main:has(form button[type="submit"]) ul li strong {
+    color: #319795;
+}
+
+main:has(form button[type="submit"]) > section:nth-of-type(3) {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+main:has(form button[type="submit"]) form input[type="text"],
+main:has(form button[type="submit"]) form input[type="email"],
+main:has(form button[type="submit"]) form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e0;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+    margin-top: 5px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+main:has(form button[type="submit"]) form input:focus,
+main:has(form button[type="submit"]) form textarea:focus {
+    outline: none;
+    border-color: #319795;
+    box-shadow: 0 0 0 3px rgba(49, 151, 149, 0.2);
+}
+
+main:has(form button[type="submit"]) form label {
+    font-weight: 600;
+    color: #2d3748;
+}
+
+main:has(form button[type="submit"]) form textarea {
+    resize: vertical;
+}
+
+main:has(form button[type="submit"]) form button[type="submit"] {
+    background-color: #319795;
+    color: #ffffff;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+main:has(form button[type="submit"]) form button[type="submit"]:hover {
+    background-color: #2b6cb0;
+    transform: translateY(-2px);
+}
+
+footer a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+footer a:hover {
+    color: #319795;
+    text-decoration: underline;
+}
