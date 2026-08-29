@@ -94,3 +94,8 @@ Para realizarlo vamos a utilizar HTML, CSS, JavaScript y Bootstrap, guardando al
 - Se deberá utilizar Vite como servidor de desarrollo. Para ello, dentro de la carpeta del proyecto, se
   instalará la dependencia con el comando npm install -D vite y luego levantar el servidor con
   npx vite.
+
+## 1 ENTREGA DE AVANCES 8-9-2026
+- Guadalupe Cristina Chalup
+- Braian Galvan
+- Yanina Gisel Galvan
