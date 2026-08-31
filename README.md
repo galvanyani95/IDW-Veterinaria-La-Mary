@@ -99,3 +99,5 @@ Para realizarlo vamos a utilizar HTML, CSS, JavaScript y Bootstrap, guardando al
 - Guadalupe Cristina Chalup
 - Braian Galvan
 - Yanina Gisel Galvan
+- María Belén Hermida
+- Sonia Monte
