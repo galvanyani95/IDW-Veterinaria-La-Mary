@@ -312,6 +312,74 @@ main:has(form button[type="submit"]) form button[type="submit"]:hover {
     transform: translateY(-2px);
 }
 
+/* ==========================================
+   SECCIÓN NUESTROS PROFESIONALES
+   ========================================== */
+
+.profesionales {
+    max-width: 1100px;
+    margin: 60px auto 0 auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.profesionales h2 {
+    color: #2d3748;
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.profesionales-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.profesional-tarjeta {
+    background-color: #ffffff;
+    padding: 30px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.profesional-tarjeta:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.profesional-tarjeta img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid #319795;
+}
+
+.profesional-tarjeta h3 {
+    color: #2d3748;
+    font-size: 1.25rem;
+    margin-bottom: 5px;
+}
+
+.profesional-tarjeta .especialidad {
+    color: #319795;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+}
+
+.profesional-tarjeta p:not(.especialidad) {
+    color: #4a5568;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
 footer a {
     color: #ffffff;
     text-decoration: none;
