@@ -101,3 +101,11 @@ Para realizarlo vamos a utilizar HTML, CSS, JavaScript y Bootstrap, guardando al
 - Yanina Gisel Galvan
 - María Belén Hermida
 - Sonia Monte
+   ## 2da entrega:REQUERIMIENTOS A CUMPLIMENTAR
+  
+  ## 2 ENTREGA DE AVANCES 29-9-2026
+- Guadalupe Cristina Chalup
+- Braian Galvan
+- Yanina Gisel Galvan
+- María Belén Hermida
+- Sonia Monte
