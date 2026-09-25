@@ -4,23 +4,35 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Veterinaria la Mary - Contacto</title>
+
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="icon" href="img/logo.png" type="image/png">
   <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+  
     <header>
-        <nav>
-            <img src="img/logo.png" alt="Logo Veterinaria Mary">
-            <a class="navbar-brand">
-                <h1>Veterinaria La Mary - Contacto</h1>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="img/logo.png" alt="Logo Veterinaria Mary" height="45" class="me-2">
+                <span class="fw-bold fs-3">Veterinaria La Mary</span>
             </a>
-            <div class="enlaces">
-                <a href="index.html" class="active">Inicio</a>
-                <a href="institucional.html">Institucional</a>
-                <a href="contacto.html">Contacto</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Abrir menú">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="navbar-nav ms-auto">
+                    <a href="index.html" class="nav-link">Inicio</a>
+                    <a href="institucional.html" class="nav-link">Institucional</a>
+                    <a href="contacto.html" class="nav-link active">Contacto</a>
+                </div>
             </div>
-        </nav>
+        </div>
+    </nav>
     </header>
 
   <main>
@@ -36,37 +48,275 @@
       </p>
 
     <section>
-      <h2>Cómo comunicarse</h2>
-
-      <ul>
-        <li><strong>Teléfono:</strong> +54 11 0000-0000</li>
-        <li><strong>Email:</strong> contacto@veterinariamary.com</li>
-        <li><strong>Dirección:</strong> Calle Falsa 123, Ciudad</li>
-      </ul>
-    </section>
-
-    <section>
       <h2>Mensaje</h2>
 
       <form>
-        <label for="nombre">Tu nombre</label><br />
-        <input type="text" id="nombre" name="nombre" required /><br /><br />
+        <div class="row">
 
-        <label for="email">Tu email</label><br />
-        <input type="email" id="email" name="email" required /><br /><br />
+          <div class="col-12 col-md-6">
+            <input class="form-control mb-3 form-control-lg" type="text" id="Nombre" placeholder="Ingrese su nombre completo">
+            <input class="form-control mb-3 form-control-lg" type="text" id="Correo" placeholder="Ingrese su correo">
+            <input class="form-control mb-3 form-control-lg" type="text" id="Teléfono" placeholder="Ingrese su telefono">
+          </div>
 
-        <label for="mensaje">Tu consulta</label><br />
-        <textarea id="mensaje" name="mensaje" rows="4" required></textarea><br /><br />
+          <div class="col-md-6">
+            <textarea class="form-control" cols="30" rows="7"></textarea>
+          </div>
 
-        <button type="submit">Enviar</button>
+          <div class="col-md-4 offset-md-4 text-center">
+            <button class="btn btn-success btn-lg" type="submit"> 
+              Enviar
+            </button>
+          </div>
+
+        </div>
       </form>
     </section>
+    
+    <hr>
+    <section>
+          
+            <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#primer-modal"> 
+              Recomendación
+            </button>
+
+            <div class="modal fade" id="primer-modal" data-bs-backdrop="static">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+
+                  <div class="modal-header">
+                    <h5 class="modal-title"> Antes de continuar… </h5>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                  </div>
+
+                  <div class="modal-body">
+                    <p>Al enviar este formulario, un veterinario evaluará la consulta y se comunicará con usted dentro de las próximas horas. En casos de urgencia, recomendamos contactarnos directamente por teléfono.</p>
+                  </div>
+
+                  <div class="modal-footer">
+                    <button class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                    <button class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+
+    </section>
+ 
+    <section>
+    <h2> Preguntas Frecuentes (FAQ) </h2>
+      <div class="container py-4">
+        <div class="accordion">
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                ¿En qué horario atiende la veterinaria?
+              </button>
+
+            </h2>
+            <div class="accordion-collapse collapse" id="collapseOne">
+              <div class="accordion-body">
+                Atendemos de lunes a sábado de 9:00 a 19:00. Las urgencias se reciben durante todo el día según disponibilidad del equipo médico.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                ¿Atienden urgencias sin turno?
+              </button>
+            </h2>
+            <div class="accordion-collapse collapse" id="collapseTwo">
+              <div class="accordion-body">
+                Sí, recibimos urgencias sin turno. Sin embargo, recomendamos llamar previamente para coordinar la llegada y asegurar atención inmediata.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                ¿Atienden animales exóticos?
+              </button>
+            </h2>
+            <div class="accordion-collapse collapse" id="collapseThree">
+              <div class="accordion-body">
+                Atendemos principalmente perros y gatos. Para animales exóticos, recomendamos consultar previamente para confirmar disponibilidad del especialista.
+              </div>
+            </div>
+
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseFour">
+                ¿Qué métodos de pago aceptan?
+              </button>
+            </h2>
+            <div class="accordion-collapse collapse" id="collapseFour">
+              <div class="accordion-body">
+                Aceptamos efectivo, tarjetas de débito y crédito. Algunos servicios pueden abonarse por transferencia.
+              </div>
+            </div>
+
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseFive">
+                ¿Qué información debo proporcionar para solicitar un turno?
+              </button>
+            </h2>
+            <div class="accordion-collapse collapse" id="collapseFive">
+              <div class="accordion-body">
+                Necesitamos el nombre del dueño, nombre del animal, motivo de la consulta y un teléfono de contacto. Si el caso es clínico, es útil incluir antecedentes o estudios previos.
+              </div>
+            </div>
+
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseSix">
+                ¿Realizan vacunaciones y desparasitaciones?
+              </button>
+            </h2>
+            <div class="accordion-collapse collapse" id="collapseSix">
+              <div class="accordion-body">
+                Sí, aplicamos todas las vacunas obligatorias y opcionales para perros y gatos. También realizamos desparasitación interna y externa.
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section>
+      <h2>¿Cómo llegar?</h2>
+
+      <div class="card w-100">
+        <div class="row g-0 align-items-center">
+
+          <div class="col-12 col-md-5">
+            <div class="card-body">
+              <h1 class="h5 card-title text-muted mb-2"> Cómo encontrarnos </h1>
+              <h2 class="h6 card-subtitle text-muted mb-2"> Es muy facil llegar:</h2>
+              <p class="card-text">La clínica se encuentra en Calle Falsa 123, una zona de fácil acceso y con estacionamiento disponible en la cuadra. Zonas de paradas de buses lineas 3, 4, y 5. Contactanos para mas información.</p>
+            </div>
+          </div>
+          
+          <div class="col-12 col-md-3 text-center p-2">
+            <img class="img-fluid rounded" src="img/gatitocontacto.jfif" alt="Gatito contacto">
+          </div>
+
+          <div class="col-12 col-md-4 p-2">
+            <div class="ratio ratio-4x3">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3365.5737788855226!2d-58.2312867!3d-32.4840902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b45287c99b3d6f%3A0x217ff14d6a8196ff!2sUniversidad%20Nacional%20de%20Entre%20Rios!5e0!3m2!1ses-419!2sar!4v1790211757730!5m2!1ses-419!2sar" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin">
+              </iframe>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
   </main>
 
-  <footer>
-      <a href="https://www.instagram.com" target="_blank">Instagram</a> |
-      <a href="https://www.facebook.com" target="_blank">Facebook</a>
-      <p> @2026 Veterinaria La Mary. Todos los derechos reservados.</p>
+  <footer class="text-white pt-5 pb-4" style="background-color: #212529;">
+    <div class="container text-center text-md-start">
+        <div class="row text-center text-md-start">
+            
+            
+            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                <h5 class="text-uppercase mb-4 font-weight-bold text-white">Veterinaria La Mary</h5>
+                <p class="text-white">Somos una veterinaria en constante crecimiento. Estamos para dar el mejor servicio a nuestros pacientes.</p>
+            </div>
+
+            
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                <h5 class="text-uppercase mb-4 font-weight-bold text-white">Servicios</h5>
+                <p>
+                    <a href="index.html#consultas" class="text-white text-decoration-none">Consultas</a>
+                </p>
+                <p>
+                    <a href="index.html#vacunacion" class="text-white text-decoration-none">Vacunación</a>
+                </p>
+                <p>
+                    <a href="index.html#estetica" class="text-white text-decoration-none">Estética</a>
+                </p>
+            </div>
+
+            
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+                <h5 class="text-uppercase mb-4 font-weight-bold text-white">Legales</h5>
+                <p>
+                    <a href="institucional.html#terminos" class="text-white text-decoration-none">Términos y Cond.</a>
+                </p>
+                <p>
+                    <a href="institucional.html#privacidad" class="text-white text-decoration-none">Privacidad</a>
+                </p>
+                <p>
+                    <a href="institucional.html#nosotros" class="text-white text-decoration-none">Sobre Nosotros</a>
+                </p>
+            </div>
+
+            
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                <h5 class="text-uppercase mb-4 font-weight-bold text-white">Contacto</h5>
+                <p class="text-white">
+                    <i class="bi bi-geo-alt-fill me-2"></i> Calle Falsa 123, Entre Ríos
+                </p>
+                <p class="text-white">
+                    <i class="bi bi-envelope-fill me-2"></i> contacto@veterinariamary.com
+                </p>
+                <p class="text-white">
+                    <i class="bi bi-telephone-fill me-2"></i> +54 11 0000-0000
+                </p>
+            </div>
+
+            <hr class="mb-4 mt-4 border-white">
+
+
+            <div class="col-md-7 col-lg-8 text-center text-md-start">
+                <p class="text-white">© 2026 Veterinaria La Mary. Todos los derechos reservados.</p>
+            </div>
+
+            
+            <div class="col-md-5 col-lg-4">
+                <div class="text-center text-md-end">
+                    <ul class="list-unstyled list-inline mb-0">
+                        <li class="list-inline-item">
+                            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="text-white fs-4 me-3" title="Facebook Oficial">
+                                <i class="bi bi-facebook"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="text-white fs-4 me-3" title="Instagram Oficial">
+                                <i class="bi bi-instagram"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="text-white fs-4" title="Canal de YouTube">
+                                <i class="bi bi-youtube"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
   </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
 </body>
-</html>
+</html> 
