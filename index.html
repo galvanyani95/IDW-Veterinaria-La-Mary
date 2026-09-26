@@ -5,96 +5,188 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Veterinaria La Mary</title>
     <link rel="icon" href="img/logo.png" type="image/png">
-    <link rel="stylesheet" href="css/style.css">
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css"> 
 </head>
 <body>
 
-    <header>
-        <nav>
-            <img src="img/logo.png" alt="Logo Veterinaria Mary">
-            <a class="navbar-brand">
-                <h1>Veterinaria La Mary</h1>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="img/logo.png" alt="Logo Veterinaria Mary" height="45" class="me-2">
+                <span class="fw-bold fs-3">Veterinaria La Mary</span>
             </a>
-            <div class="enlaces">
-                <a href="index.html" class="active">Inicio</a>
-                <a href="institucional.html">Institucional</a>
-                <a href="contacto.html">Contacto</a>
-            </div>
-        </nav>
-    </header>
-
-    <main>
-        <section class="hero">
-            <div class="hero-content">
-                <h1>El mejor cuidado para tu mejor amigo</h1>
-                <p>En Veterinaria Mary nos apasiona la salud y el bienestar de tus mascotas. Ofrecemos atención profesional con el cariño que ellos merecen.</p>
-                <a href="contacto.html" class="btn-principal">Reserva una Cita</a>
-            </div>
-        </section>
-
-        <section class="servicios">
-            <h2>Nuestros Servicios</h2>
-            <div class="servicios-grid">
-                <div class="servicio-tarjeta">
-                    <img src="img/consulta.jpg" alt="Consulta Médica">
-                    <h3>Consulta Médica</h3>
-                    <p>Revisiones generales, diagnósticos precisos y tratamientos personalizados.</p>
-                </div>
-                <div class="servicio-tarjeta">
-                    <img src="img/vacunacion.jpg" alt="Vacunación">
-                    <h3>Vacunación</h3>
-                    <p>Planes de vacunación completos para mantener protegidos a tus peludos.</p>
-                </div>
-                <div class="servicio-tarjeta">
-                    <img src="img/estetica.jpg" alt="Estética Canina">
-                    <h3>Estética Canina</h3>
-                    <p>Baño, corte de pelo y cuidado de uñas para que luzcan espectaculares.</p>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Abrir menú">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="navbar-nav ms-auto">
+                    <a href="index.html" class="nav-link active">Inicio</a>
+                    <a href="institucional.html" class="nav-link">Institucional</a>
+                    <a href="contacto.html" class="nav-link">Contacto</a>
                 </div>
             </div>
-        </section>
+        </div>
+    </nav>
+</header>
 
-        <section class="profesionales">
-            <h2>Nuestros Profesionales</h2>
-            <div class="profesionales-grid">
-                <div class="profesional-tarjeta">
-                    <img src="img/veterinario1.png" alt="Dr. Mateo Ruiz">
-                    <h3>Dr. Mateo Ruiz</h3>
-                    <p class="especialidad">Médico Veterinario / Cirujano</p>
-                    <p>Especialista en medicina interna y cirugía de pequeños animales con más de 10 años de experiencia.</p>
+<main>
+
+    <!-- HERO -->
+<section class="text-white text-center d-flex align-items-center"
+         style="min-height: 450px; background: linear-gradient(rgba(25,135,84,.75), rgba(25,135,84,.75)), url('img/animales.jpg') center/cover no-repeat;">
+    <div class="container py-5">
+        <h1 class="display-5 fw-bold" style="text-shadow: 0 2px 6px rgba(0,0,0,.4);">El mejor cuidado para tu mejor amigo</h1>
+        <p class="lead mx-auto" style="max-width: 700px; text-shadow: 0 2px 6px rgba(0,0,0,.4);">En Veterinaria Mary nos apasiona la salud y el bienestar de tus mascotas. Ofrecemos atención profesional con el cariño que ellos merecen.</p>
+        <button type="button" class="btn btn-light btn-lg rounded-pill px-4 fw-bold mt-3" data-bs-toggle="modal" data-bs-target="#modalReserva">Reserva una Cita</button>
+    </div>
+</section>
+
+
+    <!-- MODAL DE RESERVA -->
+    <div class="modal fade" id="modalReserva" tabindex="-1" aria-labelledby="modalReservaLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalReservaLabel">Reserva tu cita</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                 </div>
-                <div class="profesional-tarjeta">
-                    <img src="img/veterinario2.jpg" alt="Dra. Elena García">
-                    <h3>Dra. Elena García</h3>
-                    <p class="especialidad">Cardiología y Ecocardiografía</p>
-                    <p>Enfocado en la prevención y tratamiento de enfermedades cardíacas en perros y gatos.</p>
+                <div class="modal-body">
+                    <p>Elegí cómo preferís contactarnos para reservar el turno de tu mascota:</p>
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-2">📞 <strong>Teléfono:</strong> +54 11 0000-0000</li>
+                        <li class="mb-2">✉️ <strong>Email:</strong> contacto@veterinariamary.com</li>
+                        <li>📍 <strong>Dirección:</strong> Calle Falsa 123, Ciudad</li>
+                    </ul>
                 </div>
-                <div class="profesional-tarjeta">
-                    <img src="img/veterinario3.png" alt="Dra. Laura Gómez">
-                    <h3>Dra. Laura Gómez</h3>
-                    <p class="especialidad">Especialista en Dermatología</p>
-                    <p>cuidado de la piel y tratamiento de alergias en perros y gatos.</p>
-                </div>
-                <div class="profesional-tarjeta">
-                    <img src="img/esteticacanina.jpg" alt="Dra. Sofía Martínez">
-                    <h3>Dra. Sofía Martínez</h3>
-                    <p class="especialidad">Estética y Grooming</p>
-                    <p>Experta en cuidado estético, trato amigable y bienestar para el manejo sin estrés.</p>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary rounded-pill" data-bs-dismiss="modal">Cerrar</button>
+                    <a href="contacto.html" class="btn btn-success rounded-pill">Ir al formulario de contacto</a>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
 
-        <section class="horarios">
-            <h2>Horarios de Atención</h2>
-            <p><strong>Lunes a Viernes:</strong> 9:00 AM - 7:00 PM</p>
-            <p><strong>Sábados:</strong> 9:00 AM - 2:00 PM</p>
-            <p class="urgencias"> Emergencias las 24 horas al número de contacto.</p>
-        </section>
-    </main>
+    <!-- SERVICIOS -->
+    <section class="py-5">
+        <div class="container text-center">
+            <h2 class="mb-5">Nuestros Servicios</h2>
+            <div class="row g-4 justify-content-center">
+            <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="card h-100 shadow-sm border-0 border-top border-success border-3">
+                        <img src="img/consulta.jpg" class="card-img-top foto-servicio" style="height: 250px; object-fit: cover;" alt="Consulta Médica">
+                        <div class="card-body">
+                            <h3 class="card-title h5 text-success">Consulta Médica</h3>
+                            <p class="card-text">Revisiones generales, diagnósticos precisos y tratamientos personalizados.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="card h-100 shadow-sm border-0 border-top border-success border-3">
+                        <img src="img/vacunacion.jpg" class="card-img-top foto-servicio" style="height: 250px; object-fit: cover;" alt="Vacunación">
+                        <div class="card-body">
+                            <h3 class="card-title h5 text-success">Vacunación</h3>
+                            <p class="card-text">Planes de vacunación completos para mantener protegidos a tus peludos.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="card h-100 shadow-sm border-0 border-top border-success border-3">
+                        <img src="img/estetica.jpg" class="card-img-top foto-servicio" style="height: 250px; object-fit: cover;" alt="Estética Canina">
+                        <div class="card-body">
+                            <h3 class="card-title h5 text-success">Estética Canina</h3>
+                            <p class="card-text">Baño, corte de pelo y cuidado de uñas para que luzcan espectaculares.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <footer>
-      <a href="https://www.instagram.com" target="_blank">Instagram</a> |
-      <a href="https://www.facebook.com" target="_blank">Facebook</a>
-      <p> @2026 Veterinaria La Mary. Todos los derechos reservados.</p>
-    </footer>
+    <!-- PROFESIONALES -->
+    <section class="py-5 bg-white">
+        <div class="container text-center">
+            <h2 class="mb-5">Nuestros Profesionales</h2>
+            <div class="row g-4">
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm p-3">
+                        <img src="img/veterinario1.png" class="rounded-circle border border-success border-3 mx-auto mb-3" width="170" height="170" style="object-fit: cover;" alt="Dr. Mateo Ruiz">
+                        <h3 class="h5 mb-1">Dr. Mateo Ruiz</h3>
+                        <p class="text-success fw-semibold small mb-2">Médico Veterinario / Cirujano</p>
+                        <p class="small text-muted mb-0">Especialista en medicina interna y cirugía de pequeños animales con más de 10 años de experiencia.</p>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm p-3">
+                        <img src="img/veterinario2.jpg" class="rounded-circle border border-success border-3 mx-auto mb-3" width="170" height="170" style="object-fit: cover;" alt="Dra. Elena García">
+                        <h3 class="h5 mb-1">Dra. Elena García</h3>
+                        <p class="text-success fw-semibold small mb-2">Cardiología y Ecocardiografía</p>
+                        <p class="small text-muted mb-0">Enfocado en la prevención y tratamiento de enfermedades cardíacas en perros y gatos.</p>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm p-3">
+                        <img src="img/veterinario3.png" class="rounded-circle border border-success border-3 mx-auto mb-3" width="170" height="170" style="object-fit: cover;" alt="Dra. Laura Gómez">
+                        <h3 class="h5 mb-1">Dra. Laura Gómez</h3>
+                        <p class="text-success fw-semibold small mb-2">Especialista en Dermatología</p>
+                        <p class="small text-muted mb-0">Cuidado de la piel y tratamiento de alergias en perros y gatos.</p>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm p-3">
+                        <img src="img/esteticacanina.jpg" class="rounded-circle border border-success border-3 mx-auto mb-3" width="170" height="170" style="object-fit: cover;" alt="Dra. Sofía Martínez">
+                        <h3 class="h5 mb-1">Dra. Sofía Martínez</h3>
+                        <p class="text-success fw-semibold small mb-2">Estética y Grooming</p>
+                        <p class="small text-muted mb-0">Experta en cuidado estético, trato amigable y bienestar para el manejo sin estrés.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HORARIOS -->
+    <section class="py-5 bg-light">
+        <div class="container text-center">
+            <h2 class="mb-4">Horarios de Atención</h2>
+
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-6">
+
+                    <div class="card shadow-sm border-0 p-4">
+                        <h3 class="h5 mb-3">Horarios de atención</h3>
+
+                        <ul class="list-group list-group-flush mb-3">
+                            <li class="list-group-item">
+                              <strong>Lunes a Viernes:</strong> 9:00 AM - 7:00 PM
+
+                            </li>
+
+                            <li class="list-group-item"> 
+                              <strong>Sábados:</strong> 9:00 AM - 2:00 PM
+                            </li>
+                          </ul>
+
+                        <div class="alert alert-danger fw-bold mb-0" role="alert">
+                            Emergencias las 24 horas al número de contacto.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="bg-dark text-center text-white py-4">
+    <div class="container">
+        <a href="https://www.instagram.com" target="_blank" rel="noopener" class="link-light">Instagram</a>
+        <span class="mx-2">|</span>
+        <a href="https://www.facebook.com" target="_blank" rel="noopener" class="link-light">Facebook</a>
+        <p class="mb-0 mt-2 small">@2026 Veterinaria La Mary. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+<script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
