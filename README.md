@@ -119,3 +119,54 @@ del sitio web. Diseño claro y consistente.
 - Yanina Gisel Galvan
 - María Belén Hermida
 - Sonia Monte
+   ## 3ra entrega:REQUERIMIENTOS A CUMPLIMENTAR
+  Generales
+  -Crear una página de gestión para cada entidad, accesible desde la barra de navegación del
+sitio.
+  -Escribir el código JavaScript en archivos externos (.js) vinculados a cada página.
+-Maquetar los formularios y las tablas con componentes de Bootstrap 5, manteniendo el
+diseño responsivo logrado en la entrega anterior.
+  -Almacenar cada entidad en LocalStorage bajo su propia clave.
+  -Generar automáticamente el identificador de cada registro al momento del alta. El usuario
+no deberá ingresarlo.
+  -Al cargar cada página, mostrar en la tabla los datos almacenados en LocalStorage
+
+  ##Entidad Mascotas
+Cada mascota deberá registrar los siguientes datos:
+  °idMascota: string con uid identificatorio (generado automáticamente).
+  °nombreMascota: string.
+  °nombreDuenio: string.
+  °color: string.
+  °edad: número entero.
+  °peso: número decimal.
+--Funcionalidades requeridas:
+- Registrar: formulario con un campo por cada dato (excepto el id). Al enviarlo, la mascota
+deberá guardarse en LocalStorage.
+- Listar: mostrar en una tabla todas las mascotas registradas. La tabla y el total de mascotas
+registradas deberán actualizarse luego de cada alta, edición o eliminación.
+- Editar: cada fila contará con un botón que cargue los datos de la mascota en el formulario
+para modificarlos y guardar los cambios.
+- Eliminar: cada fila contará con un botón para borrar la mascota, previa confirmación del
+usuario.
+##Entidad Veterinarios
+Cada veterinario deberá registrar los siguientes datos:
+  °idVeterinario: string con uid identificatorio (generado automáticamente).
+  °matricula: número entero.
+  °nombre: string.
+  °especializacion: string.
+  °valorConsulta: número decimal.
+--Funcionalidades requeridas:
+- Registrar: formulario con un campo por cada dato (excepto el id). Al enviarlo, el veterinario
+deberá guardarse en LocalStorage.
+- Listar: mostrar en una tabla todos los veterinarios registrados, con el valor de consulta en
+formato moneda.
+- Editar: cada fila contará con un botón que cargue los datos del veterinario en el formulario
+para modificarlos y guardar los cambios.
+- Eliminar: cada fila contará con un botón para borrar el veterinario, previa confirmación del
+usuario
+  ## 3 ENTREGA DE AVANCES 23-10-2026
+- Guadalupe Cristina Chalup
+- Braian Galvan
+- Yanina Gisel Galvan
+- María Belén Hermida
+- Sonia Monte
