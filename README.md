@@ -132,14 +132,17 @@ no deberá ingresarlo.
   -Al cargar cada página, mostrar en la tabla los datos almacenados en LocalStorage
 
   ##Entidad Mascotas
+  
 Cada mascota deberá registrar los siguientes datos:
-  °idMascota: string con uid identificatorio (generado automáticamente).
-  °nombreMascota: string.
-  °nombreDuenio: string.
-  °color: string.
-  °edad: número entero.
-  °peso: número decimal.
---Funcionalidades requeridas:
+  -idMascota: string con uid identificatorio (generado automáticamente).
+  -nombreMascota: string.
+  -nombreDuenio: string.
+  -color: string.
+  -edad: número entero.
+  -peso: número decimal.
+  
+#Funcionalidades requeridas:
+
 - Registrar: formulario con un campo por cada dato (excepto el id). Al enviarlo, la mascota
 deberá guardarse en LocalStorage.
 - Listar: mostrar en una tabla todas las mascotas registradas. La tabla y el total de mascotas
@@ -148,14 +151,17 @@ registradas deberán actualizarse luego de cada alta, edición o eliminación.
 para modificarlos y guardar los cambios.
 - Eliminar: cada fila contará con un botón para borrar la mascota, previa confirmación del
 usuario.
+
 ##Entidad Veterinarios
 Cada veterinario deberá registrar los siguientes datos:
-  °idVeterinario: string con uid identificatorio (generado automáticamente).
-  °matricula: número entero.
-  °nombre: string.
-  °especializacion: string.
-  °valorConsulta: número decimal.
---Funcionalidades requeridas:
+  -idVeterinario: string con uid identificatorio (generado automáticamente).
+  -matricula: número entero.
+  -nombre: string.
+  -especializacion: string.
+  -valorConsulta: número decimal.
+  
+#Funcionalidades requeridas:
+
 - Registrar: formulario con un campo por cada dato (excepto el id). Al enviarlo, el veterinario
 deberá guardarse en LocalStorage.
 - Listar: mostrar en una tabla todos los veterinarios registrados, con el valor de consulta en
