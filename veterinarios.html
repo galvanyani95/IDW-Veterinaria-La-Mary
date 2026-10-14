@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Veterinaria La Mary</title>
+    <link
+      rel="stylesheet"
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="icon" href="img/logo.png" type="image/png" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <nav
+        class="navbar navbar-expand-lg navbar-dark bg-success shadow-sm sticky-top"
+      >
+        <div class="container">
+          <a class="navbar-brand d-flex align-items-center" href="index.html">
+            <img
+              src="img/logo.png"
+              alt="Logo Veterinaria Mary"
+              height="45"
+              class="me-2"
+            />
+            <span class="fw-bold fs-3">Veterinaria La Mary</span>
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Abrir menú"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="navbar-nav ms-auto">
+              <a href="index.html" class="nav-link">Inicio</a>
+              <a href="institucional.html" class="nav-link">Institucional</a>
+              <a href="mascotas.html" class="nav-link">Mascotas</a>
+              <a href="veterinarios.html" class="nav-link active">Veterinarios</a>
+              <a href="contacto.html" class="nav-link">Contacto</a>
+         
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="container py-5">
+        <div class="row g-4">
+          <!-- Listado de veterinarios -->
+          <article class="col-12 col-lg-7">
+            <h2 class="fs-1 fw-semibold mt-2">
+              Veterinarios Registrados
+              <span
+                class="badge text-bg-secondary align-middle fs-5"
+                id="total"
+              >
+                0
+              </span>
+            </h2>
+            
+          
+            <div class="mb-3">
+               <label for="buscador" class="form-label">Buscar veterinario</label>
+               <input
+                  type="text"
+                  id="buscador"
+                  class="form-control"
+                  placeholder="Buscar por nombre o especialización"
+                />
+            </div>
+
+            
+
+            <div class="table-responsive rounded-3">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Matrícula</th>
+                    <th>Nombre</th>
+                    <th>Especialización</th>
+                    <th>Valor de consulta</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody id="listado-veterinarios"></tbody>
+              </table>
+            </div>
+          </article>
+
+          <!-- Formulario de registro: veterinarios -->
+          <article class="col-12 col-lg-5">
+            <form
+              class="d-flex flex-column gap-3 p-4 bg-body-tertiary rounded-4"
+              id="form-veterinarios"
+            >
+              <h3 class="fs-4">Nuevo Veterinario</h3>
+
+              <div>
+                <label for="matricula" class="form-label"> Matrícula </label>
+                <input
+                  type="number"
+                  name="matricula"
+                  id="matricula"
+                  class="form-control"
+                  placeholder="Ej: 12345"
+                  min="1"
+                  step="1"
+                  required
+                />
+              </div>
+
+              <div>
+                <label for="nombre" class="form-label">
+                  Nombre del veterinario
+                </label>
+                <input
+                  type="text"
+                  name="nombre"
+                  id="nombre"
+                  class="form-control"
+                  required
+                />
+              </div>
+
+              <div>
+                <label for="especializacion" class="form-label">
+                  Especialización
+                </label>
+                <input
+                  type="text"
+                  name="especializacion"
+                  id="especializacion"
+                  class="form-control"
+                  required
+                />
+              </div>
+
+              <div>
+                <label for="valorConsulta" class="form-label">
+                  Valor de la consulta
+                </label>
+                <input
+                  type="number"
+                  name="valorConsulta"
+                  id="valorConsulta"
+                  class="form-control"
+                  min="0"
+                  step="0.01"
+                  placeholder="Ej: 1234.50"
+                  required
+                />
+              </div>
+
+              <button
+                id="botonAgregarVeterinario"
+                class="btn btn-success"
+                type="submit"
+              >
+                Agregar veterinario
+              </button>
+            </form>
+          </article>
+        </div>
+      </section>  
+   </main>
+
+    <section>
+       <div class="container text-center mb-4">
+            <h2 class="fs-2">Catálogo de veterinarios</h2>
+       </div>
+       <div class="container">
+          <div id="catalogo-veterinarios" class="row g-4"></div>
+       </div>
+    </section>
+
+
+<div class="modal fade" id="modal-editar" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <form id="form-editar">
+        <div class="modal-header">
+          <h5 class="modal-title">Editar Veterinario</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body">
+
+          <div class="mb-3">
+            <label class="form-label">Matrícula</label>
+            <input type="number" id="editarMatricula" name="editarMatricula" class="form-control" required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Nombre</label>
+            <input type="text" id="editarNombre" name="editarNombre" class="form-control" required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Especialización</label>
+            <input type="text" id="editarEspecializacion" name="editarEspecializacion" class="form-control" required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Valor consulta</label>
+            <input type="number" id="editarValorConsulta" name="editarValorConsulta" class="form-control" required>
+          </div>
+
+        </div>
+
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-success">Guardar cambios</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+
+  <footer class="bg-dark text-white border-top py-3 mt-auto">
+
+      <div class="container text-center">
+        <small>&copy; 2026 Veterinaria La Mary. Todos los derechos reservados.</small>
+      </div>
+  </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="veterinarios.js"></script>
+  </body>
+</html>

@@ -116,18 +116,17 @@ formularioEditar.addEventListener('submit', (e) => {
 });
 
 
-// Para el html
-// <div id="catalogo-veterinarios" class="row"></div>
-
 
 const catalogo = document.getElementById('catalogo-veterinarios');
 
-function renderCatalogo() {
+function renderCatalogo( ) {
     catalogo.innerHTML = '';
 
-    veterinarios.forEach(v => {
+    const ordenados = [...veterinarios].sort((a, b) => a.matricula - b.matricula);
+
+    ordenados.forEach(v => {
         catalogo.innerHTML += `
-            <div class="col-md-4 mb-4">
+            <div class="col-md-4 col-sm-6 col-12">
                 <div class="card h-100">
                     <div class="card-body">
                         <h5 class="card-title">${v.nombre}</h5>
@@ -145,8 +144,7 @@ function renderCatalogo() {
 
 renderCatalogo();
 
-// Para el html
-// <input type="text" id="buscador" class="form-control mb-3" placeholder="Buscar veterinario">
+
 
 document.getElementById('buscador').addEventListener('input', (e) => {
     const texto = e.target.value.toLowerCase();
