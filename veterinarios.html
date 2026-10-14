@@ -55,23 +55,10 @@
       </nav>
     </header>
 
-    <main>
-      <section class="container py-5">
-        <div class="row g-4">
-          <!-- Listado de veterinarios -->
-          <article class="col-12 col-lg-7">
-            <h2 class="fs-1 fw-semibold mt-2">
-              Veterinarios Registrados
-              <span
-                class="badge text-bg-secondary align-middle fs-5"
-                id="total"
-              >
-                0
-              </span>
-            </h2>
-            
-          
-            <div class="mb-3">
+    <main class="container">
+      <h1 class="h2 mb-4">Gestión de profesionales</h1>
+
+        <div class="mb-3">
                <label for="buscador" class="form-label">Buscar veterinario</label>
                <input
                   type="text"
@@ -79,8 +66,23 @@
                   class="form-control"
                   placeholder="Buscar por nombre o especialización"
                 />
-            </div>
+        </div>
 
+      <section class="container py-5">
+      
+        <div class="row g-4">
+          <!-- Listado de veterinarios -->
+
+          <article class="col-12 col-lg-7">
+            <h2 class="fs-3 fw-semibold mt-2 d-flex align-items-center">
+              Veterinarios Registrados
+              <span
+                class="badge text-bg-secondary fs-6 ms-2"
+                id="total"
+              >
+                0
+              </span>
+            </h2>
             
 
             <div class="table-responsive rounded-3">
