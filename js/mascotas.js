@@ -22,6 +22,7 @@ function render() {
                 <td>${mascota.color}</td>
                 <td>${mascota.edad}</td>
                 <td>${mascota.peso}</td>
+                <td><img src="${mascota.Imagen || 'img/naranjoso.jpg'}" alt="Imagen de la mascota" class="img-fluid" style="max-width: 50px; height: auto;"></td>
                 <td class="text-center">
                     <button class="btn btn-danger btn-sm me-2" onclick="eliminarMascota('${mascota.idMascota}')">
                         <i class="bi bi-trash"></i> Eliminar
