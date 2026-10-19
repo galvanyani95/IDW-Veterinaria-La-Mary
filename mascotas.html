@@ -1,18 +1,23 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mascotas | Veterinaria La Mary</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mascotas | Veterinaria La Mary</title>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-  <link rel="icon" href="img/logo.png" type="image/png">
-  <link href="css/mascotas.css" rel="stylesheet">
-</head>
-<body class="d-flex flex-column min-vh-100">
-
-      <header>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="img/logo.png" type="image/png" />
+    <link href="css/mascotas.css" rel="stylesheet" />
+  </head>
+  <body class="d-flex flex-column min-vh-100">
+    <header>
       <nav
         class="navbar navbar-expand-lg navbar-dark bg-success shadow-sm sticky-top"
       >
@@ -40,234 +45,424 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <div class="navbar-nav ms-auto">
               <a href="index.html" class="nav-link">Inicio</a>
-              <a href="contacto.html" class="nav-link">Contacto</a>              
+              <a href="contacto.html" class="nav-link">Contacto</a>
               <a href="institucional.html" class="nav-link">Institucional</a>
               <a href="mascotas.html" class="nav-link">Mascotas</a>
-              <a href="veterinarios.html" class="nav-link active">Veterinarios</a>
+              <a href="veterinarios.html" class="nav-link active"
+                >Veterinarios</a
+              >
             </div>
           </div>
         </div>
       </nav>
     </header>
 
-  <main class="container px-4 px-lg-5 py-4  py-lg-5 flex-grow-1">
-    <h1 class="h2 mb-4">Gestión de mascotas</h1>
+    <main class="container px-4 px-lg-5 py-4 py-lg-5 flex-grow-1">
+      <h1 class="h2 mb-4">Gestión de mascotas</h1>
 
-    <div class="row g-4">
+      <div class="row g-4">
+        <section class="col-12 col-lg-5">
+          <div class="card bg-success-subtle">
+            <div
+              class="card-header d-flex flex-wrap justify-content-between align-items-center gap-2"
+            >
+              <h2 class="h5 mb-0">Registrar mascota</h2>
+            </div>
+            <div class="card-body">
+              <form id="form-mascota">
+                <div class="mb-3">
+                  <label for="nombreMascota" class="form-label"
+                    >Nombre de la mascota</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="nombreMascota"
+                    name="nombreMascota"
+                    placeholder="Ej: Firulais"
+                    pattern="[A-Za-zÁÉÍÓÚáéíóúÜüÑñ\s]{3,10}"
+                    title="Ingresá solamente letras y espacios"
+                    required
+                  />
+                </div>
 
-      <section class="col-12 col-lg-5">
-        <div class="card bg-success-subtle">
-          <div class="card-header d-flex flex-wrap justify-content-between align-items-center gap-2">
-            <h2 class="h5 mb-0">Registrar mascota</h2>
+                <div class="mb-3">
+                  <label for="nombreDuenio" class="form-label"
+                    >Nombre del dueño</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="nombreDuenio"
+                    name="nombreDuenio"
+                    placeholder="Ej: María Pérez"
+                    pattern="[A-Za-zÁÉÍÓÚáéíóúÜüÑñ\s]{3,10}"
+                    title="Ingresá solamente letras y espacios"
+                    required
+                  />
+                </div>
+
+                <div class="mb-3">
+                  <label for="color" class="form-label">Color</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="color"
+                    name="color"
+                    placeholder="Ej: Marrón con blanco"
+                    pattern="[A-Za-zÁÉÍÓÚáéíóúÜüÑñ\s]{3,10}"
+                    title="Ingresá solamente letras y espacios"
+                    required
+                  />
+                </div>
+
+                <div class="row">
+                  <div class="col-6 mb-3">
+                    <label for="edad" class="form-label">Edad (años)</label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="edad"
+                      name="edad"
+                      min="0"
+                      step="1"
+                      placeholder="Ej: 3"
+                      required
+                    />
+                  </div>
+                  <div class="col-6 mb-3">
+                    <label for="peso" class="form-label">Peso (Kg)</label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="peso"
+                      name="peso"
+                      min="0"
+                      step="1"
+                      placeholder="Ej: 12"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <label for="imagen" class="form-label">Imagen</label>
+                  <input
+                    type="file"
+                    class="form-control"
+                    id="imagen"
+                    name="imagen"
+                    accept="image/*"
+                    required
+                  />
+                  <div class="form-text">
+                    Obligatoria. Formatos de imagen (JPG, PNG, etc.). Máximo 500
+                    KB.
+                  </div>
+                </div>
+
+                <div class="d-grid">
+                  <button type="submit" class="btn btn-primary">
+                    Guardar mascota
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
-          <div class="card-body">
-            <form id="form-mascota">
-              <div class="mb-3">
-                <label for="nombreMascota" class="form-label">Nombre de la mascota</label>
-                <input type="text" class="form-control" id="nombreMascota" name="nombreMascota" placeholder="Ej: Firulais" required>
-              </div>
+        </section>
 
-              <div class="mb-3">
-                <label for="nombreDuenio" class="form-label">Nombre del dueño</label>
-                <input type="text" class="form-control" id="nombreDuenio" name="nombreDuenio" placeholder="Ej: María Pérez" required>
-              </div>
+        <section class="col-12 col-lg-7">
+          <div class="card bg-success-subtle">
+            <div
+              class="card-header d-flex flex-wrap justify-content-between align-items-center gap-2"
+            >
+              <h2 class="h5 mb-0">Mascotas registradas</h2>
+              <span class="badge text-bg-secondary">
+                Total: <span id="total">0</span>
+              </span>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive rounded-3">
+                <table class="table table-hover align-middle tabla-mascotas">
+                  <thead>
+                    <tr>
+                      <th scope="col">Dueño</th>
+                      <th scope="col">Mascota</th>
+                      <th scope="col">Color</th>
+                      <th scope="col">Edad</th>
+                      <th scope="col">Peso (Kg)</th>
+                      <th scope="col">Imagen</th>
+                      <th scope="col" class="text-center">Acciones</th>
+                    </tr>
+                  </thead>
 
-              <div class="mb-3">
-                <label for="color" class="form-label">Color</label>
-                <input type="text" class="form-control" id="color" name="color" placeholder="Ej: Marrón con blanco" required>
+                  <tbody id="listado-mascotas"></tbody>
+                </table>
               </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
 
+    <div
+      class="modal fade"
+      id="modal-editar"
+      tabindex="-1"
+      aria-labelledby="modalEditarTitulo"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <form id="form-editar">
+            <div class="modal-header">
+              <h2 class="modal-title h5" id="modalEditarTitulo">
+                Editar mascota
+              </h2>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Cerrar"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div class="mb-3">
+                <label for="editarNombreMascota" class="form-label"
+                  >Nombre de la mascota</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="editarNombreMascota"
+                  name="editarNombreMascota"
+                  pattern="[A-Za-zÁÉÍÓÚáéíóúÜüÑñ\s]{3,10}"
+                  title="Ingresá solamente letras y espacios"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="editarNombreDuenio" class="form-label"
+                  >Nombre del dueño</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="editarNombreDuenio"
+                  name="editarNombreDuenio"
+                  pattern="[A-Za-zÁÉÍÓÚáéíóúÜüÑñ\s]{3,10}"
+                  title="Ingresá solamente letras y espacios"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="editarColor" class="form-label">Color</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="editarColor"
+                  name="editarColor"
+                  pattern="[A-Za-zÁÉÍÓÚáéíóúÜüÑñ\s]{3,10}"
+                  title="Ingresá solamente letras y espacios"
+                  required
+                />
+              </div>
               <div class="row">
                 <div class="col-6 mb-3">
-                  <label for="edad" class="form-label">Edad (años)</label>
-                  <input type="number" class="form-control" id="edad" name="edad" min="0" step="1" placeholder="Ej: 3" required>
+                  <label for="editarEdad" class="form-label">Edad (años)</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="editarEdad"
+                    name="editarEdad"
+                    min="0"
+                    step="1"
+                    required
+                  />
                 </div>
                 <div class="col-6 mb-3">
-                  <label for="peso" class="form-label">Peso (Kg)</label>
-                  <input type="number" class="form-control" id="peso" name="peso" min="0" step="1" placeholder="Ej: 12" required>
+                  <label for="editarPeso" class="form-label">Peso (Kg)</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="editarPeso"
+                    name="editarPeso"
+                    min="0"
+                    step="1"
+                    placeholder="Ej: 1500"
+                    required
+                  />
                 </div>
               </div>
-
               <div class="mb-3">
-                <label for="imagen" class="form-label">Imagen</label>
-                <input type="file" class="form-control" id="imagen" name="imagen" accept="image/*" required>
-                <div class="form-text">Obligatoria. Formatos de imagen (JPG, PNG, etc.). Máximo 500 KB.</div>
+                <label for="editarImagen" class="form-label"
+                  >Cambiar imagen (opcional)</label
+                >
+                <input
+                  type="file"
+                  class="form-control"
+                  id="editarImagen"
+                  name="editarImagen"
+                  accept="image/*"
+                />
+                <div class="form-text">
+                  Si no elegís una nueva, se mantiene la actual. Máximo 500 KB.
+                </div>
               </div>
-
-              <div class="d-grid">
-                <button type="submit" class="btn btn-primary">Guardar mascota</button>
-              </div>
-            </form>
-          </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-outline-secondary"
+                data-bs-dismiss="modal"
+              >
+                Cancelar
+              </button>
+              <button type="submit" class="btn btn-primary">
+                Guardar cambios
+              </button>
+            </div>
+          </form>
         </div>
-      </section>
-
-      <section class="col-12 col-lg-7">
-        <div class="card bg-success-subtle">
-          <div class="card-header d-flex flex-wrap justify-content-between align-items-center gap-2">
-            <h2 class="h5 mb-0">Mascotas registradas</h2>
-            <span class="badge text-bg-secondary">
-              Total: <span id="total">0</span>
-            </span>
-          </div>
-          <div class="card-body">
-            <div class="table-responsive rounded-3">
-              <table class="table table-hover align-middle tabla-mascotas">
-                <thead>
-                  <tr>
-                    <th scope="col">Dueño</th>
-                    <th scope="col">Mascota</th>
-                    <th scope="col">Color</th>
-                    <th scope="col">Edad</th>
-                    <th scope="col">Peso (Kg)</th>
-                    <th scope="col">Imagen</th>
-                    <th scope="col" class="text-center">Acciones</th>
-                  </tr>
-                </thead>
-               
-                <tbody id="listado-mascotas"></tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </section>
-
-    </div>
-  </main>
-
-  <div class="modal fade" id="modal-editar" tabindex="-1" aria-labelledby="modalEditarTitulo" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <form id="form-editar">
-          <div class="modal-header">
-            <h2 class="modal-title h5" id="modalEditarTitulo">Editar mascota</h2>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-          </div>
-          <div class="modal-body">
-            <div class="mb-3">
-              <label for="editarNombreMascota" class="form-label">Nombre de la mascota</label>
-              <input type="text" class="form-control" id="editarNombreMascota" name="editarNombreMascota" required>
-            </div>
-            <div class="mb-3">
-              <label for="editarNombreDuenio" class="form-label">Nombre del dueño</label>
-              <input type="text" class="form-control" id="editarNombreDuenio" name="editarNombreDuenio" required>
-            </div>
-            <div class="mb-3">
-              <label for="editarColor" class="form-label">Color</label>
-              <input type="text" class="form-control" id="editarColor" name="editarColor" required>
-            </div>
-            <div class="row">
-              <div class="col-6 mb-3">
-                <label for="editarEdad" class="form-label">Edad (años)</label>
-                <input type="number" class="form-control" id="editarEdad" name="editarEdad" min="0" step="1" required>
-              </div>
-              <div class="col-6 mb-3">
-                <label for="editarPeso" class="form-label">Peso (Kg)</label>
-                <input type="number" class="form-control" id="editarPeso" name="editarPeso" min="0" step="1" placeholder="Ej: 1500" required>
-              </div>
-            </div>
-            <div class="mb-3">
-              <label for="editarImagen" class="form-label">Cambiar imagen (opcional)</label>
-              <input type="file" class="form-control" id="editarImagen" name="editarImagen" accept="image/*">
-              <div class="form-text">Si no elegís una nueva, se mantiene la actual. Máximo 500 KB.</div>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
-            <button type="submit" class="btn btn-primary">Guardar cambios</button>
-          </div>
-        </form>
       </div>
     </div>
-  </div>
 
-  <footer class="text-white pt-5 pb-4" style="background-color: #212529;">
-    <div class="container text-center text-md-start">
+    <footer class="text-white pt-5 pb-4" style="background-color: #212529">
+      <div class="container text-center text-md-start">
         <div class="row text-center text-md-start">
-            
-            
-            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-                <h5 class="text-uppercase mb-4 font-weight-bold text-white">Veterinaria La Mary</h5>
-                <p class="text-white">Somos una veterinaria en constante crecimiento. Estamos para dar el mejor servicio a nuestros pacientes.</p>
+          <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+            <h5 class="text-uppercase mb-4 font-weight-bold text-white">
+              Veterinaria La Mary
+            </h5>
+            <p class="text-white">
+              Somos una veterinaria en constante crecimiento. Estamos para dar
+              el mejor servicio a nuestros pacientes.
+            </p>
+          </div>
+
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+            <h5 class="text-uppercase mb-4 font-weight-bold text-white">
+              Servicios
+            </h5>
+            <p>
+              <a
+                href="index.html#consultas"
+                class="text-white text-decoration-none"
+                >Consultas</a
+              >
+            </p>
+            <p>
+              <a
+                href="index.html#vacunacion"
+                class="text-white text-decoration-none"
+                >Vacunación</a
+              >
+            </p>
+            <p>
+              <a
+                href="index.html#estetica"
+                class="text-white text-decoration-none"
+                >Estética</a
+              >
+            </p>
+          </div>
+
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+            <h5 class="text-uppercase mb-4 font-weight-bold text-white">
+              Legales
+            </h5>
+            <p>
+              <a
+                href="institucional.html#terminos"
+                class="text-white text-decoration-none"
+                >Términos y Cond.</a
+              >
+            </p>
+            <p>
+              <a
+                href="institucional.html#privacidad"
+                class="text-white text-decoration-none"
+                >Privacidad</a
+              >
+            </p>
+            <p>
+              <a
+                href="institucional.html#nosotros"
+                class="text-white text-decoration-none"
+                >Sobre Nosotros</a
+              >
+            </p>
+          </div>
+
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+            <h5 class="text-uppercase mb-4 font-weight-bold text-white">
+              Contacto
+            </h5>
+            <p class="text-white">
+              <i class="bi bi-geo-alt-fill me-2"></i> Calle Falsa 123, Entre
+              Ríos
+            </p>
+            <p class="text-white">
+              <i class="bi bi-envelope-fill me-2"></i>
+              contacto@veterinariamary.com
+            </p>
+            <p class="text-white">
+              <i class="bi bi-telephone-fill me-2"></i> +54 11 0000-0000
+            </p>
+          </div>
+
+          <hr class="mb-4 mt-4 border-white" />
+
+          <div class="col-md-7 col-lg-8 text-center text-md-start">
+            <p class="text-white">
+              © 2026 Veterinaria La Mary. Todos los derechos reservados.
+            </p>
+          </div>
+
+          <div class="col-md-5 col-lg-4">
+            <div class="text-center text-md-end">
+              <ul class="list-unstyled list-inline mb-0">
+                <li class="list-inline-item">
+                  <a
+                    href="https://www.facebook.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-white fs-4 me-3"
+                    title="Facebook Oficial"
+                  >
+                    <i class="bi bi-facebook"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a
+                    href="https://www.instagram.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-white fs-4 me-3"
+                    title="Instagram Oficial"
+                  >
+                    <i class="bi bi-instagram"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a
+                    href="https://www.youtube.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-white fs-4"
+                    title="Canal de YouTube"
+                  >
+                    <i class="bi bi-youtube"></i>
+                  </a>
+                </li>
+              </ul>
             </div>
-
-            
-            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-                <h5 class="text-uppercase mb-4 font-weight-bold text-white">Servicios</h5>
-                <p>
-                    <a href="index.html#consultas" class="text-white text-decoration-none">Consultas</a>
-                </p>
-                <p>
-                    <a href="index.html#vacunacion" class="text-white text-decoration-none">Vacunación</a>
-                </p>
-                <p>
-                    <a href="index.html#estetica" class="text-white text-decoration-none">Estética</a>
-                </p>
-            </div>
-
-            
-            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
-                <h5 class="text-uppercase mb-4 font-weight-bold text-white">Legales</h5>
-                <p>
-                    <a href="institucional.html#terminos" class="text-white text-decoration-none">Términos y Cond.</a>
-                </p>
-                <p>
-                    <a href="institucional.html#privacidad" class="text-white text-decoration-none">Privacidad</a>
-                </p>
-                <p>
-                    <a href="institucional.html#nosotros" class="text-white text-decoration-none">Sobre Nosotros</a>
-                </p>
-            </div>
-
-            
-            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
-                <h5 class="text-uppercase mb-4 font-weight-bold text-white">Contacto</h5>
-                <p class="text-white">
-                    <i class="bi bi-geo-alt-fill me-2"></i> Calle Falsa 123, Entre Ríos
-                </p>
-                <p class="text-white">
-                    <i class="bi bi-envelope-fill me-2"></i> contacto@veterinariamary.com
-                </p>
-                <p class="text-white">
-                    <i class="bi bi-telephone-fill me-2"></i> +54 11 0000-0000
-                </p>
-            </div>
-
-            <hr class="mb-4 mt-4 border-white">
-
-
-            <div class="col-md-7 col-lg-8 text-center text-md-start">
-                <p class="text-white">© 2026 Veterinaria La Mary. Todos los derechos reservados.</p>
-            </div>
-
-            
-            <div class="col-md-5 col-lg-4">
-                <div class="text-center text-md-end">
-                    <ul class="list-unstyled list-inline mb-0">
-                        <li class="list-inline-item">
-                            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="text-white fs-4 me-3" title="Facebook Oficial">
-                                <i class="bi bi-facebook"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="text-white fs-4 me-3" title="Instagram Oficial">
-                                <i class="bi bi-instagram"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="text-white fs-4" title="Canal de YouTube">
-                                <i class="bi bi-youtube"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
+          </div>
         </div>
-    </div>
-  </footer>
+      </div>
+    </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/mascotas.js" defer></script>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/mascotas.js" defer></script>
+  </body>
 </html>

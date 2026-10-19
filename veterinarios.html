@@ -44,10 +44,12 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <div class="navbar-nav ms-auto">
               <a href="index.html" class="nav-link">Inicio</a>
-              <a href="contacto.html" class="nav-link">Contacto</a>              
+              <a href="contacto.html" class="nav-link">Contacto</a>
               <a href="institucional.html" class="nav-link">Institucional</a>
               <a href="mascotas.html" class="nav-link">Mascotas</a>
-              <a href="veterinarios.html" class="nav-link active">Veterinarios</a>
+              <a href="veterinarios.html" class="nav-link active"
+                >Veterinarios</a
+              >
             </div>
           </div>
         </div>
@@ -57,32 +59,27 @@
     <main class="container">
       <h1 class="h2 mb-4">Gestión de profesionales</h1>
 
-        <div class="mb-3">
-               <label for="buscador" class="form-label">Buscar veterinario</label>
-               <input
-                  type="text"
-                  id="buscador"
-                  class="form-control"
-                  placeholder="Buscar por nombre o especialización"
-                />
-        </div>
+      <div class="mb-3">
+        <label for="buscador" class="form-label">Buscar veterinario</label>
+        <input
+          type="text"
+          id="buscador"
+          class="form-control"
+          placeholder="Buscar por nombre o especialización"
+        />
+      </div>
 
       <section class="container py-5">
-      
         <div class="row g-4">
           <!-- Listado de veterinarios -->
 
           <article class="col-12 col-lg-7">
             <h2 class="fs-3 fw-semibold mt-2 d-flex align-items-center">
               Veterinarios Registrados
-              <span
-                class="badge text-bg-secondary fs-6 ms-2"
-                id="total"
-              >
+              <span class="badge text-bg-secondary fs-6 ms-2" id="total">
                 0
               </span>
             </h2>
-            
 
             <div class="table-responsive rounded-3">
               <table class="table table-striped">
@@ -131,6 +128,8 @@
                   name="nombre"
                   id="nombre"
                   class="form-control"
+                  pattern="[A-Za-zÁÉÍÓÚáéíóúÜüÑñ\s]{3,10}"
+                  title="Ingresá solamente letras y espacios"
                   required
                 />
               </div>
@@ -144,6 +143,8 @@
                   name="especializacion"
                   id="especializacion"
                   class="form-control"
+                  pattern="[A-Za-zÁÉÍÓÚáéíóúÜüÑñ\s]{3,10}"
+                  title="Ingresá solamente letras y espacios"
                   required
                 />
               </div>
@@ -174,148 +175,234 @@
             </form>
           </article>
         </div>
-      </section>  
-   </main>
+      </section>
+    </main>
 
-<div class="modal fade" id="modal-editar" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
+    <div class="modal fade" id="modal-editar" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form id="form-editar">
+            <div class="modal-header">
+              <h5 class="modal-title">Editar Veterinario</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+              ></button>
+            </div>
 
-      <form id="form-editar">
-        <div class="modal-header">
-          <h5 class="modal-title">Editar Veterinario</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            <div class="modal-body">
+              <div class="mb-3">
+                <label class="form-label">Matrícula</label>
+                <input
+                  type="number"
+                  id="editarMatricula"
+                  name="editarMatricula"
+                  class="form-control"
+                  required
+                />
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Nombre</label>
+                <input
+                  type="text"
+                  id="editarNombre"
+                  name="editarNombre"
+                  class="form-control"
+                  pattern="[A-Za-zÁÉÍÓÚáéíóúÜüÑñ\s]{3,10}"
+                  title="Ingresá solamente letras y espacios"
+                  required
+                />
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Especialización</label>
+                <input
+                  type="text"
+                  id="editarEspecializacion"
+                  name="editarEspecializacion"
+                  class="form-control"
+                  pattern="[A-Za-zÁÉÍÓÚáéíóúÜüÑñ\s]{3,10}"
+                  title="Ingresá solamente letras y espacios"
+                  required
+                />
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Valor consulta</label>
+                <input
+                  type="number"
+                  id="editarValorConsulta"
+                  name="editarValorConsulta"
+                  class="form-control"
+                  min="0"
+                  step="0.01"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-success">
+                Guardar cambios
+              </button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Cancelar
+              </button>
+            </div>
+          </form>
         </div>
-
-        <div class="modal-body">
-
-          <div class="mb-3">
-            <label class="form-label">Matrícula</label>
-            <input type="number" id="editarMatricula" name="editarMatricula" class="form-control" required>
-          </div>
-
-          <div class="mb-3">
-            <label class="form-label">Nombre</label>
-            <input type="text" id="editarNombre" name="editarNombre" class="form-control" required>
-          </div>
-
-          <div class="mb-3">
-            <label class="form-label">Especialización</label>
-            <input type="text" id="editarEspecializacion" name="editarEspecializacion" class="form-control" required>
-          </div>
-
-          <div class="mb-3">
-            <label class="form-label">Valor consulta</label>
-            <input type="number" id="editarValorConsulta" name="editarValorConsulta" class="form-control" required>
-          </div>
-
-        </div>
-
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-success">Guardar cambios</button>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        </div>
-      </form>
-
+      </div>
     </div>
-  </div>
-</div>
 
-<section class="mb-5">
-       <div class="container text-center mb-4">
-            <h2 class="fs-2">Catálogo de veterinarios</h2>
-       </div>
-       <div class="container">
-          <div id="catalogo-veterinarios" class="row g-4"></div>
-       </div>
-</section>
+    <section class="mb-5">
+      <div class="container text-center mb-4">
+        <h2 class="fs-2">Catálogo de veterinarios</h2>
+      </div>
+      <div class="container">
+        <div id="catalogo-veterinarios" class="row g-4"></div>
+      </div>
+    </section>
 
-  <footer class="text-white pt-5 pb-4" style="background-color: #212529;">
-    <div class="container text-center text-md-start">
+    <footer class="text-white pt-5 pb-4" style="background-color: #212529">
+      <div class="container text-center text-md-start">
         <div class="row text-center text-md-start">
-            
-            
-            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-                <h5 class="text-uppercase mb-4 font-weight-bold text-white">Veterinaria La Mary</h5>
-                <p class="text-white">Somos una veterinaria en constante crecimiento. Estamos para dar el mejor servicio a nuestros pacientes.</p>
+          <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+            <h5 class="text-uppercase mb-4 font-weight-bold text-white">
+              Veterinaria La Mary
+            </h5>
+            <p class="text-white">
+              Somos una veterinaria en constante crecimiento. Estamos para dar
+              el mejor servicio a nuestros pacientes.
+            </p>
+          </div>
+
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+            <h5 class="text-uppercase mb-4 font-weight-bold text-white">
+              Servicios
+            </h5>
+            <p>
+              <a
+                href="index.html#consultas"
+                class="text-white text-decoration-none"
+                >Consultas</a
+              >
+            </p>
+            <p>
+              <a
+                href="index.html#vacunacion"
+                class="text-white text-decoration-none"
+                >Vacunación</a
+              >
+            </p>
+            <p>
+              <a
+                href="index.html#estetica"
+                class="text-white text-decoration-none"
+                >Estética</a
+              >
+            </p>
+          </div>
+
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+            <h5 class="text-uppercase mb-4 font-weight-bold text-white">
+              Legales
+            </h5>
+            <p>
+              <a
+                href="institucional.html#terminos"
+                class="text-white text-decoration-none"
+                >Términos y Cond.</a
+              >
+            </p>
+            <p>
+              <a
+                href="institucional.html#privacidad"
+                class="text-white text-decoration-none"
+                >Privacidad</a
+              >
+            </p>
+            <p>
+              <a
+                href="institucional.html#nosotros"
+                class="text-white text-decoration-none"
+                >Sobre Nosotros</a
+              >
+            </p>
+          </div>
+
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+            <h5 class="text-uppercase mb-4 font-weight-bold text-white">
+              Contacto
+            </h5>
+            <p class="text-white">
+              <i class="bi bi-geo-alt-fill me-2"></i> Calle Falsa 123, Entre
+              Ríos
+            </p>
+            <p class="text-white">
+              <i class="bi bi-envelope-fill me-2"></i>
+              contacto@veterinariamary.com
+            </p>
+            <p class="text-white">
+              <i class="bi bi-telephone-fill me-2"></i> +54 11 0000-0000
+            </p>
+          </div>
+
+          <hr class="mb-4 mt-4 border-white" />
+
+          <div class="col-md-7 col-lg-8 text-center text-md-start">
+            <p class="text-white">
+              © 2026 Veterinaria La Mary. Todos los derechos reservados.
+            </p>
+          </div>
+
+          <div class="col-md-5 col-lg-4">
+            <div class="text-center text-md-end">
+              <ul class="list-unstyled list-inline mb-0">
+                <li class="list-inline-item">
+                  <a
+                    href="https://www.facebook.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-white fs-4 me-3"
+                    title="Facebook Oficial"
+                  >
+                    <i class="bi bi-facebook"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a
+                    href="https://www.instagram.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-white fs-4 me-3"
+                    title="Instagram Oficial"
+                  >
+                    <i class="bi bi-instagram"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a
+                    href="https://www.youtube.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-white fs-4"
+                    title="Canal de YouTube"
+                  >
+                    <i class="bi bi-youtube"></i>
+                  </a>
+                </li>
+              </ul>
             </div>
-
-            
-            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-                <h5 class="text-uppercase mb-4 font-weight-bold text-white">Servicios</h5>
-                <p>
-                    <a href="index.html#consultas" class="text-white text-decoration-none">Consultas</a>
-                </p>
-                <p>
-                    <a href="index.html#vacunacion" class="text-white text-decoration-none">Vacunación</a>
-                </p>
-                <p>
-                    <a href="index.html#estetica" class="text-white text-decoration-none">Estética</a>
-                </p>
-            </div>
-
-            
-            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
-                <h5 class="text-uppercase mb-4 font-weight-bold text-white">Legales</h5>
-                <p>
-                    <a href="institucional.html#terminos" class="text-white text-decoration-none">Términos y Cond.</a>
-                </p>
-                <p>
-                    <a href="institucional.html#privacidad" class="text-white text-decoration-none">Privacidad</a>
-                </p>
-                <p>
-                    <a href="institucional.html#nosotros" class="text-white text-decoration-none">Sobre Nosotros</a>
-                </p>
-            </div>
-
-            
-            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
-                <h5 class="text-uppercase mb-4 font-weight-bold text-white">Contacto</h5>
-                <p class="text-white">
-                    <i class="bi bi-geo-alt-fill me-2"></i> Calle Falsa 123, Entre Ríos
-                </p>
-                <p class="text-white">
-                    <i class="bi bi-envelope-fill me-2"></i> contacto@veterinariamary.com
-                </p>
-                <p class="text-white">
-                    <i class="bi bi-telephone-fill me-2"></i> +54 11 0000-0000
-                </p>
-            </div>
-
-            <hr class="mb-4 mt-4 border-white">
-
-
-            <div class="col-md-7 col-lg-8 text-center text-md-start">
-                <p class="text-white">© 2026 Veterinaria La Mary. Todos los derechos reservados.</p>
-            </div>
-
-            
-            <div class="col-md-5 col-lg-4">
-                <div class="text-center text-md-end">
-                    <ul class="list-unstyled list-inline mb-0">
-                        <li class="list-inline-item">
-                            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="text-white fs-4 me-3" title="Facebook Oficial">
-                                <i class="bi bi-facebook"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="text-white fs-4 me-3" title="Instagram Oficial">
-                                <i class="bi bi-instagram"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="text-white fs-4" title="Canal de YouTube">
-                                <i class="bi bi-youtube"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
+          </div>
         </div>
-    </div>
-  </footer>
-
+      </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/veterinarios.js"></script>
