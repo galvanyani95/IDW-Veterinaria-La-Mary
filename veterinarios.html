@@ -70,13 +70,16 @@
                 <div class="mb-3">
                   <label for="matricula" class="form-label">Matrícula</label>
                   <input
-                    type="number"
+                    type="text"
                     name="matricula"
                     id="matricula"
                     class="form-control"
                     placeholder="Ej: 12345"
-                    min="1"
-                    step="1"
+                    inputmode="numeric"
+                    pattern="[0-9]{1,10}"
+                    minlength="1"
+                    maxlength="10"
+                    title="Ingresá una matrícula de entre 1 y 10 dígitos"
                     required
                   />
                 </div>
@@ -88,8 +91,10 @@
                     name="nombre"
                     id="nombre"
                     class="form-control"
-                    pattern="[A-Za-zÁÉÍÓÚáéíóúÜüÑñ\s]{3,10}"
-                    title="Ingresá solamente letras y espacios"
+                    pattern="[A-Za-zÁÉÍÓÚáéíóúÜüÑñ\s]{2,25}"
+                    minlength="2"
+                    maxlength="25"
+                    title="Ingresá entre 2 y 25 letras y espacios"
                     required
                   />
                 </div>
@@ -101,24 +106,29 @@
                     name="especializacion"
                     id="especializacion"
                     class="form-control"
-                    pattern="[A-Za-zÁÉÍÓÚáéíóúÜüÑñ\s]{3,10}"
-                    title="Ingresá solamente letras y espacios"
+                    pattern="[A-Za-zÁÉÍÓÚáéíóúÜüÑñ\s]{2,25}"
+                    minlength="2"
+                    maxlength="25"
+                    title="Ingresá entre 2 y 25 letras y espacios"
                     required
                   />
                 </div>
 
                 <div class="mb-3">
                   <label for="valorConsulta" class="form-label">Valor de la consulta</label>
-                  <input
-                    type="number"
-                    name="valorConsulta"
-                    id="valorConsulta"
-                    class="form-control"
-                    min="0"
-                    step="0.01"
-                    placeholder="Ej: 1234.50"
-                    required
-                  />
+                  <div class="input-group">
+                    <span class="input-group-text">$</span>
+                    <input
+                      type="number"
+                      name="valorConsulta"
+                      id="valorConsulta"
+                      class="form-control"
+                      min="0"
+                      step="0.01"
+                      placeholder="Ej: 1234.50"
+                      required
+                    />
+                  </div>
                 </div>
 
                 <div class="d-grid">
@@ -189,10 +199,15 @@
               <div class="mb-3">
                 <label class="form-label">Matrícula</label>
                 <input
-                  type="number"
+                  type="text"
                   id="editarMatricula"
                   name="editarMatricula"
                   class="form-control"
+                  inputmode="numeric"
+                  pattern="[0-9]{1,10}"
+                  minlength="1"
+                  maxlength="10"
+                  title="Ingresá una matrícula de entre 1 y 10 dígitos"
                   required
                 />
               </div>
@@ -204,8 +219,10 @@
                   id="editarNombre"
                   name="editarNombre"
                   class="form-control"
-                  pattern="[A-Za-zÁÉÍÓÚáéíóúÜüÑñ\s]{3,10}"
-                  title="Ingresá solamente letras y espacios"
+                  pattern="[A-Za-zÁÉÍÓÚáéíóúÜüÑñ\s]{2,25}"
+                  minlength="2"
+                  maxlength="25"
+                  title="Ingresá entre 2 y 25 letras y espacios"
                   required
                 />
               </div>
@@ -217,23 +234,28 @@
                   id="editarEspecializacion"
                   name="editarEspecializacion"
                   class="form-control"
-                  pattern="[A-Za-zÁÉÍÓÚáéíóúÜüÑñ\s]{3,10}"
-                  title="Ingresá solamente letras y espacios"
+                  pattern="[A-Za-zÁÉÍÓÚáéíóúÜüÑñ\s]{2,25}"
+                  minlength="2"
+                  maxlength="25"
+                  title="Ingresá entre 2 y 25 letras y espacios"
                   required
                 />
               </div>
 
               <div class="mb-3">
                 <label class="form-label">Valor consulta</label>
-                <input
-                  type="number"
-                  id="editarValorConsulta"
-                  name="editarValorConsulta"
-                  class="form-control"
-                  min="0"
-                  step="0.01"
-                  required
-                />
+                <div class="input-group">
+                  <span class="input-group-text">$</span>
+                  <input
+                    type="number"
+                    id="editarValorConsulta"
+                    name="editarValorConsulta"
+                    class="form-control"
+                    min="0"
+                    step="0.01"
+                    required
+                  />
+                </div>
               </div>
             </div>
 
