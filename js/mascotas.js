@@ -3,6 +3,7 @@ const mascotas = JSON.parse(localStorage.getItem('mascotas')) || [];
 
 const listadoMascotas = document.getElementById('listado-mascotas');
 const total = document.getElementById('total');
+const buscador = document.getElementById('buscador');
 const formulario = document.getElementById('form-mascota');
 const formularioEditar = document.getElementById('form-editar');
 
@@ -14,7 +15,24 @@ let idMascotaEditar;
 function render() {
     listadoMascotas.innerHTML = '';
 
-    mascotas.forEach((mascota) => {
+     // Filtramos según lo escrito en el buscador (por mascota o por dueño)
+    const texto = buscador.value.trim().toLowerCase();
+    const lista = mascotas.filter((m) =>
+        m.nombreMascota.toLowerCase().includes(texto) ||
+        m.nombreDuenio.toLowerCase().includes(texto)
+    );
+
+    if (lista.length === 0) {
+        listadoMascotas.innerHTML = `
+            <tr>
+                <td class="fila-vacia" colspan="7">
+                    ${texto ? 'No se encontraron mascotas que coincidan con la búsqueda.' : 'Todavía no hay mascotas registradas.'}
+                </td>
+            </tr>
+        `;
+    }
+
+    lista.forEach((mascota) => {
         listadoMascotas.innerHTML += `
             <tr>
                 <td>${mascota.nombreDuenio}</td>
@@ -22,6 +40,7 @@ function render() {
                 <td>${mascota.color}</td>
                 <td>${mascota.edad}</td>
                 <td>${mascota.peso}</td>
+                <td><img src="${mascota.Imagen || 'img/naranjoso.jpg'}" alt="Imagen de la mascota" class="img-fluid" style="max-width: 50px; height: auto;"></td>
                 <td class="text-center">
                     <button class="btn btn-danger btn-sm me-2" onclick="eliminarMascota('${mascota.idMascota}')">
                         <i class="bi bi-trash"></i> Eliminar
@@ -122,3 +141,6 @@ function eliminarMascota(id) {
         }
     }
 }
+
+// Cada vez que se escribe en el buscador, se vuelve a dibujar la tabla filtrada
+buscador.addEventListener('input', render);
