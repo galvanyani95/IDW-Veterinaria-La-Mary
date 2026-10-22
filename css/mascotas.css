@@ -50,9 +50,18 @@
   .tabla-mascotas tbody td:nth-child(2)::before { content: "Mascota"; }
   .tabla-mascotas tbody td:nth-child(3)::before { content: "Color"; }
   .tabla-mascotas tbody td:nth-child(4)::before { content: "Edad"; }
-  .tabla-mascotas tbody td:nth-child(5)::before { content: "Peso (g)"; }
+  .tabla-mascotas tbody td:nth-child(5)::before { content: "Peso (Kg)"; }
   .tabla-mascotas tbody td:nth-child(6)::before { content: "Imagen"; }
   .tabla-mascotas tbody td:nth-child(7)::before { content: "Acciones"; }
+
+  .tabla-mascotas tbody td.fila-vacia {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .tabla-mascotas tbody td.fila-vacia::before {
+    content: none;
+  }
 
   .tabla-mascotas tbody td:last-child {
     border-bottom: 0;
