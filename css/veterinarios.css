@@ -1,0 +1,59 @@
+@media (max-width: 767.98px) {
+  .tabla-veterinarios thead {
+    display: none;
+  }
+
+  .tabla-veterinarios,
+  .tabla-veterinarios tbody,
+  .tabla-veterinarios tr,
+  .tabla-veterinarios td {
+    display: block;
+    width: 100%;
+  }
+
+  .tabla-veterinarios {
+    margin-bottom: 0;
+  }
+
+  .tabla-veterinarios tbody tr {
+    margin-bottom: 1rem;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--bs-border-color);
+    border-radius: 0.75rem;
+    background-color: var(--bs-body-bg);
+  }
+
+  .tabla-veterinarios tbody tr:last-child {
+    margin-bottom: 0;
+  }
+
+  .tabla-veterinarios tbody td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.65rem 0;
+    border: 0;
+    border-bottom: 1px solid var(--bs-border-color-translucent);
+    text-align: right;
+    overflow-wrap: anywhere;
+  }
+
+  .tabla-veterinarios tbody td::before {
+    flex: 0 0 38%;
+    font-weight: 600;
+    text-align: left;
+    color: var(--bs-secondary-color);
+  }
+
+  .tabla-veterinarios tbody td:nth-child(1)::before { content: "Matrícula"; }
+  .tabla-veterinarios tbody td:nth-child(2)::before { content: "Nombre"; }
+  .tabla-veterinarios tbody td:nth-child(3)::before { content: "Especialización"; }
+  .tabla-veterinarios tbody td:nth-child(4)::before { content: "Valor de consulta"; }
+  .tabla-veterinarios tbody td:nth-child(5)::before { content: "Acciones"; }
+
+  .tabla-veterinarios tbody td:last-child {
+    flex-wrap: wrap;
+    border-bottom: 0;
+  }
+}
