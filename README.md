@@ -1,0 +1,178 @@
+# introduccion-desarrollo-web
+
+"Veterinaria La Mary"
+
+### Integrantes Grupo 10:
+
+- Guadalupe Cristina Chalup
+- Braian Galvan
+- Yanina Gisel Galvan
+- María Belen Hermida
+- Sonia Monte
+
+## Enlace a GITHUB
+
+https://github.com/galvanyani95/introduccion-desarrollo-web.git
+
+## Consignas:
+
+El trabajo consiste en crear una página web para la veterinaria “La Mary” que permita mostrar información del lugar y de sus veterinarios, incluyendo su especialidad y precio de consulta.
+Además, los administradores podrán registrar mascotas, sacar turnos y llevar la historia clínica de cada mascota. El sistema también tendrá filtros para buscar veterinarios y turnos más fácilmente.
+Para realizarlo vamos a utilizar HTML, CSS, JavaScript y Bootstrap, guardando algunos datos en LocalStorage y obteniendo información de una API REST mediante
+
+## Registrar los siguientes datos:
+
+## De las Mascotas:
+
+- idMascota: string con uid identificatorio.
+- nombreMascota: string.
+- nombreDuenio: string.
+- color: string.
+- edad: número entero.
+- peso: número decimal.
+- imagenMascota: string con la imagen en formato Base64.
+  ## De los Veterinarios:
+- idVeterinario: string con uid identificatorio.
+- matricula: número entero.
+- nombre: string.
+- especializacion: string.
+- valorConsulta: número decimal.
+  ## De los Turnos:
+- idTurno: string con uid identificatorio.
+- fechaHora: fecha y hora del turno.
+- mascota: identificador de la entidad Mascota.
+- veterinario: identificador de la entidad Veterinario.
+  ## De la Historia Clínica:
+- idHistoriaClinica: string con uid identificatorio.
+- mascota: identificador de la entidad Mascota (a quién pertenece).
+- veterinario: identificador de la entidad Veterinario (quién atendió).
+- fechaHora: fecha y hora de la atención.
+- observaciones: string (notas libres del profesional).
+  ## REQUERIMIENTOS
+  Se debe contar con interfaces de usuario interactivas que permitan acceder a las siguientes
+  opciones:
+  ## veterinaria (Rol Visitante)
+- Portada, incluyendo el listado de profesionales disponibles con su especialización y valor de
+  consulta
+- Información institucional
+- Contacto
+
+  ## Administradores de la veterinaria (Rol Administrador)
+
+- Para todas las entidades:
+  o Listar en formato tabla los datos registrados.
+- En referencia a los Veterinarios:
+  o Registrar uno nuevo.
+  o Editar los datos de uno existente.
+  o Eliminar un veterinario.
+- En referencia a las Mascotas:
+  o Registrar una nueva.
+  o Editar los datos de una existente.
+  o Eliminar una mascota.
+
+- En referencia a los Turnos:
+  o Registrar nuevos turnos para cada veterinario.
+  o Eliminar turnos existentes.
+
+- En referencia a la Historia Clínica:
+  o Registrar nuevas entradas asociadas a una mascota y un veterinario.
+  o Visualizar el historial completo de una mascota
+
+  ## OPCIONALES VALORABLES
+
+  ## 1ra entrega:REQUERIMIENTOS A CUMPLIMENTAR
+
+- Crear un documento (página web) de Inicio o Portada.
+- Crear un documento (página web) de Información Institucional.
+- Crear un documento (página web) de Contacto.
+- Cada documento deberá contar con un menú de navegación en la parte superior y un pie de página en
+  la parte inferior.
+- Los documentos deberán estar vinculados entre sí mediante enlaces (<a>), de modo que se pueda
+  navegar desde cualquiera de ellos hacia los demás.
+- Los enlaces deberán utilizar rutas relativas y el menú de navegación deberá replicarse en todos los
+  documentos.
+- Se deberá utilizar Vite como servidor de desarrollo. Para ello, dentro de la carpeta del proyecto, se
+  instalará la dependencia con el comando npm install -D vite y luego levantar el servidor con
+  npx vite.
+
+## 1 ENTREGA DE AVANCES 8-9-2026
+- Guadalupe Cristina Chalup
+- Braian Galvan
+- Yanina Gisel Galvan
+- María Belén Hermida
+- Sonia Monte
+  
+   ## 2da entrega:REQUERIMIENTOS A CUMPLIMENTAR
+ - Adaptación del diseño mediante el uso de clases y componentes de Bootstrap 5. Por ejemplo:
+sistema de grillas, espaciados, cards, modals, formularios, alerts, botones, etc..
+-Se deberá combinar el diseño propio con las utilidades provistas por Bootstrap.
+- Listar en la portada un catálogo de profesionales utilizando el sistema de grillas de Bootstrap. Cada
+card deberá contener al menos: foto, nombre y especialidad.
+- Incorporación de una barra de navegación responsiva y funcional, coherente con la estructura del
+sitio, que incluya: Versión colapsada para móvil (menú hamburguesa). Acceso a todas las páginas
+del sitio web. Diseño claro y consistente.
+- Opcional: Implementar modo oscuro utilizando utilidades de Bootstrap y/o CSS variables
+  
+  ## 2 ENTREGA DE AVANCES 29-9-2026
+- Guadalupe Cristina Chalup
+- Braian Galvan
+- Yanina Gisel Galvan
+- María Belén Hermida
+- Sonia Monte
+   ## 3ra entrega:REQUERIMIENTOS A CUMPLIMENTAR
+  Generales
+  -Crear una página de gestión para cada entidad, accesible desde la barra de navegación del
+sitio.
+  -Escribir el código JavaScript en archivos externos (.js) vinculados a cada página.
+-Maquetar los formularios y las tablas con componentes de Bootstrap 5, manteniendo el
+diseño responsivo logrado en la entrega anterior.
+  -Almacenar cada entidad en LocalStorage bajo su propia clave.
+  -Generar automáticamente el identificador de cada registro al momento del alta. El usuario
+no deberá ingresarlo.
+  -Al cargar cada página, mostrar en la tabla los datos almacenados en LocalStorage
+
+  ##Entidad Mascotas
+  
+Cada mascota deberá registrar los siguientes datos:
+  -idMascota: string con uid identificatorio (generado automáticamente).
+  -nombreMascota: string.
+  -nombreDuenio: string.
+  -color: string.
+  -edad: número entero.
+  -peso: número decimal.
+  
+#Funcionalidades requeridas:
+
+- Registrar: formulario con un campo por cada dato (excepto el id). Al enviarlo, la mascota
+deberá guardarse en LocalStorage.
+- Listar: mostrar en una tabla todas las mascotas registradas. La tabla y el total de mascotas
+registradas deberán actualizarse luego de cada alta, edición o eliminación.
+- Editar: cada fila contará con un botón que cargue los datos de la mascota en el formulario
+para modificarlos y guardar los cambios.
+- Eliminar: cada fila contará con un botón para borrar la mascota, previa confirmación del
+usuario.
+
+##Entidad Veterinarios
+Cada veterinario deberá registrar los siguientes datos:
+  -idVeterinario: string con uid identificatorio (generado automáticamente).
+  -matricula: número entero.
+  -nombre: string.
+  -especializacion: string.
+  -valorConsulta: número decimal.
+  
+#Funcionalidades requeridas:
+
+- Registrar: formulario con un campo por cada dato (excepto el id). Al enviarlo, el veterinario
+deberá guardarse en LocalStorage.
+- Listar: mostrar en una tabla todos los veterinarios registrados, con el valor de consulta en
+formato moneda.
+- Editar: cada fila contará con un botón que cargue los datos del veterinario en el formulario
+para modificarlos y guardar los cambios.
+- Eliminar: cada fila contará con un botón para borrar el veterinario, previa confirmación del
+usuario
+  ## 3 ENTREGA DE AVANCES 23-10-2026
+- Guadalupe Cristina Chalup
+- Braian Galvan
+- Yanina Gisel Galvan
+- María Belén Hermida
+- Sonia Monte
