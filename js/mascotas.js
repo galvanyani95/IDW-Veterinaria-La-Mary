@@ -1,4 +1,3 @@
-// Si hay datos en el localStorage, los cargamos, si no, array vacío
 const mascotas = JSON.parse(localStorage.getItem('mascotas')) || [];
 
 const listadoMascotas = document.getElementById('listado-mascotas');
@@ -6,11 +5,9 @@ const total = document.getElementById('total');
 const formulario = document.getElementById('form-mascota');
 const formularioEditar = document.getElementById('form-editar');
 
-// Modal de editar y variable para el ID
 const modalEditar = new bootstrap.Modal(document.getElementById('modal-editar'));
 let idMascotaEditar;
 
-// Función para cargar y renderizar los datos en la tabla
 function render() {
     listadoMascotas.innerHTML = '';
 
@@ -38,14 +35,12 @@ function render() {
     total.textContent = mascotas.length;
 }
 
-// Ejecutamos render al cargar la página
 render();
 
 function guardarEnLocalStorage() {
     localStorage.setItem('mascotas', JSON.stringify(mascotas));
 }
 
-// Manejo del formulario para crear nueva mascota
 formulario.addEventListener('submit', (evento) => {
     evento.preventDefault();
 
@@ -66,14 +61,12 @@ formulario.addEventListener('submit', (evento) => {
     formulario.reset();
 });
 
-// Función para abrir el modal y cargar los datos de la mascota a editar
 function editarMascota(id) {
     const mascotaAEditar = mascotas.find((mascota) => mascota.idMascota === id);
     
     if (mascotaAEditar) {
         idMascotaEditar = id;
 
-        // Rellenamos los inputs del modal de editar
         document.getElementById('editarNombreDuenio').value = mascotaAEditar.nombreDuenio;
         document.getElementById('editarNombreMascota').value = mascotaAEditar.nombreMascota;
         document.getElementById('editarColor').value = mascotaAEditar.color;
@@ -84,7 +77,6 @@ function editarMascota(id) {
     }
 }
 
-// Manejo del formulario de editar
 formularioEditar.addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -109,7 +101,6 @@ formularioEditar.addEventListener('submit', (e) => {
     }
 });
 
-// Función para eliminar una mascota con confirmación previa y usando findIndex/splice
 function eliminarMascota(id) {
     const confirmar = confirm("¿Está seguro de que desea eliminar esta mascota?");
 
