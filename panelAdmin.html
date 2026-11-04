@@ -7,7 +7,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
     <link rel="icon" href="img/logo.png" type="image/png"/>
-    <link href="css/mascotas.css" rel="stylesheet"/>
     <script src="js/sesion.js" defer></script>
     <script src="js/panelAdmin.js" defer></script>
   </head>
@@ -42,7 +41,7 @@
               <a href="contacto.html" class="nav-link">Contacto</a>              
               <a href="institucional.html" class="nav-link">Institucional</a>
               <a href="panelAdmin.html" class="nav-link active">Panel Admin</a>
-              <button class="btn btn-secondary" onclick="cerrarSesion()">Cerrar sesión</button>
+              <a href="#" class="nav-link" onclick="cerrarSesion(); return false;">Cerrar sesión</a>
             </div>
           </div>
         </div>
@@ -52,7 +51,7 @@
   <main>
     <section class="container py-5">
 
-      <span class="badge rounded-pill text-bg-primary fw-semibold">PANEL ADMIN</span>
+      <span class="badge rounded-pill text-bg-success fw-semibold">PANEL ADMIN</span>
       <h2 class="fs-1 fw-semibold mt-2">Hola, <span id="nombre-usuario"></span></h2>
       <p class="mb-4">Elegí un módulo para gestionar.</p>
 
@@ -64,7 +63,7 @@
               <h3 class="card-title fs-4">Mascotas</h3>
               <p class="card-text">Alta, edición y baja de mascotas.</p>
               <span class="badge text-bg-secondary align-self-start" id="total-mascotas">0</span>
-              <a href="mascotas.html" class="btn btn-primary mt-auto">Ingresar</a>
+              <a href="mascotas.html" class="btn btn-success mt-auto">Ingresar</a>
             </div>
           </div>
         </article>
@@ -75,7 +74,7 @@
               <h3 class="card-title fs-4">Veterinarios</h3>
               <p class="card-text">Gestión del equipo profesional.</p>
               <span class="badge text-bg-secondary align-self-start" id="total-veterinarios">0</span>
-              <a href="veterinarios.html" class="btn btn-primary mt-auto">Ingresar</a>
+              <a href="veterinarios.html" class="btn btn-success mt-auto">Ingresar</a>
             </div>
           </div>
         </article>
@@ -86,7 +85,7 @@
               <h3 class="card-title fs-4">Turnos</h3>
               <p class="card-text">Agenda de turnos de la clínica.</p>
               <span class="badge text-bg-secondary align-self-start" id="total-turnos">0</span>
-              <a href="turnos.html" class="btn btn-primary mt-auto">Ingresar</a>
+              <a href="turnos.html" class="btn btn-success mt-auto">Ingresar</a>
             </div>
           </div>
         </article>
@@ -97,7 +96,7 @@
               <h3 class="card-title fs-4">Historia Clínica</h3>
               <p class="card-text">Registro de consultas y tratamientos.</p>
               <span class="badge text-bg-secondary align-self-start" id="total-historia-clinica">0</span>
-              <a href="historia-clinica.html" class="btn btn-primary mt-auto">Ingresar</a>
+              <a href="historia-clinica.html" class="btn btn-success mt-auto">Ingresar</a>
             </div>
           </div>
         </article>
