@@ -75,8 +75,8 @@
                     id="nombreMascota"
                     name="nombreMascota"
                     placeholder="Ej: Firulais"
-                    pattern="[A-Za-zÁÉÍÓÚáéíóúÜüÑñ\s]{3,10}"
-                    title="Ingresá solamente letras y espacios"
+                    pattern="[A-Za-zÁÉÍÓÚáéíóúÜüÑñ\s]{2,50}"
+                    title="Ingresá solamente letras y espacios (entre 2 y 50 caracteres)"
                     required
                   />
                 </div>
@@ -91,8 +91,8 @@
                     id="nombreDuenio"
                     name="nombreDuenio"
                     placeholder="Ej: María Pérez"
-                    pattern="[A-Za-zÁÉÍÓÚáéíóúÜüÑñ\s]{3,10}"
-                    title="Ingresá solamente letras y espacios"
+                    pattern="[A-Za-zÁÉÍÓÚáéíóúÜüÑñ\s]{2,50}"
+                    title="Ingresá solamente letras y espacios (entre 2 y 50 caracteres)"
                     required
                   />
                 </div>
@@ -105,8 +105,8 @@
                     id="color"
                     name="color"
                     placeholder="Ej: Marrón con blanco"
-                    pattern="[A-Za-zÁÉÍÓÚáéíóúÜüÑñ\s]{3,10}"
-                    title="Ingresá solamente letras y espacios"
+                    pattern="[A-Za-zÁÉÍÓÚáéíóúÜüÑñ\s]{2,50}"
+                    title="Ingresá solamente letras y espacios (entre 2 y 50 caracteres)"
                     required
                   />
                 </div>
@@ -119,7 +119,8 @@
                       class="form-control"
                       id="edad"
                       name="edad"
-                      min="0"
+                      min="0" 
+                      max="30"
                       step="1"
                       placeholder="Ej: 3"
                       required
@@ -132,9 +133,10 @@
                       class="form-control"
                       id="peso"
                       name="peso"
-                      min="0"
-                      step="1"
-                      placeholder="Ej: 12"
+                      min="0.01"
+                      max="140"
+                      step="0.01"
+                      placeholder="Ej: 12.5"
                       required
                     />
                   </div>
@@ -177,7 +179,17 @@
               </span>
             </div>
             <div class="card-body">
-              <div class="table-responsive rounded-3">
+              <label for="buscador" class="visually-hidden"
+                >Buscar mascota</label
+              >
+              <input
+                type="text"
+                id="buscador"
+                class="form-control mb-3"
+                placeholder="Buscar por mascota o dueño"
+              />
+
+            <div class="table-responsive rounded-3">
                 <table class="table table-hover align-middle tabla-mascotas">
                   <thead>
                     <tr>
@@ -231,8 +243,8 @@
                   class="form-control"
                   id="editarNombreMascota"
                   name="editarNombreMascota"
-                  pattern="[A-Za-zÁÉÍÓÚáéíóúÜüÑñ\s]{3,10}"
-                  title="Ingresá solamente letras y espacios"
+                  pattern="[A-Za-zÁÉÍÓÚáéíóúÜüÑñ\s]{2,50}"
+                  title="Ingresá solamente letras y espacios (entre 2 y 50 caracteres)"
                   required
                 />
               </div>
@@ -245,8 +257,8 @@
                   class="form-control"
                   id="editarNombreDuenio"
                   name="editarNombreDuenio"
-                  pattern="[A-Za-zÁÉÍÓÚáéíóúÜüÑñ\s]{3,10}"
-                  title="Ingresá solamente letras y espacios"
+                  pattern="[A-Za-zÁÉÍÓÚáéíóúÜüÑñ\s]{2,50}"
+                  title="Ingresá solamente letras y espacios (entre 2 y 50 caracteres)"
                   required
                 />
               </div>
@@ -257,8 +269,8 @@
                   class="form-control"
                   id="editarColor"
                   name="editarColor"
-                  pattern="[A-Za-zÁÉÍÓÚáéíóúÜüÑñ\s]{3,10}"
-                  title="Ingresá solamente letras y espacios"
+                  pattern="[A-Za-zÁÉÍÓÚáéíóúÜüÑñ\s]{2,50}"
+                  title="Ingresá solamente letras y espacios (entre 2 y 50 caracteres)"
                   required
                 />
               </div>
@@ -271,6 +283,7 @@
                     id="editarEdad"
                     name="editarEdad"
                     min="0"
+                    max="30"
                     step="1"
                     required
                   />
@@ -282,9 +295,10 @@
                     class="form-control"
                     id="editarPeso"
                     name="editarPeso"
-                    min="0"
-                    step="1"
-                    placeholder="Ej: 1500"
+                    min="0.01"
+                    max="140"
+                    step="0.01"
+                    placeholder="Ej: 12.5"
                     required
                   />
                 </div>

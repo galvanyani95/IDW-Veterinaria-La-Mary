@@ -7,6 +7,13 @@ const formularioEditar = document.getElementById('form-editar');
 const modalEditar = new bootstrap.Modal(document.getElementById('modal-editar'));
 let idveterinarioEditar;
 
+function formatearMoneda(valor) {
+    return new Intl.NumberFormat('es-AR', {
+        style: 'currency',
+        currency: 'ARS',
+    }).format(Number(valor));
+}
+
 function render() {
     listadoVeterinarios.innerHTML = '';
 
@@ -16,7 +23,7 @@ function render() {
                 <td>${veterinario.matricula}</td>
                 <td>${veterinario.nombre}</td>
                 <td>${veterinario.especializacion}</td>
-                <td>${veterinario.valorConsulta}</td>
+                <td>${formatearMoneda(veterinario.valorConsulta)}</td>
                 <td class="text-center">
                     <button class="btn btn-danger btn-sm me-2" onclick="eliminarVeterinario('${veterinario.idVeterinario}')">
                         <i class="bi bi-trash"></i> Eliminar
@@ -166,7 +173,7 @@ function renderFiltrados(lista) {
                 <td>${v.matricula}</td>
                 <td>${v.nombre}</td>
                 <td>${v.especializacion}</td>
-                <td>${v.valorConsulta}</td>
+                <td>${formatearMoneda(v.valorConsulta)}</td>
                 <td class="text-center">
                     <button class="btn btn-danger btn-sm me-2" onclick="eliminarVeterinario('${v.idVeterinario}')">Eliminar</button>
                     <button class="btn btn-warning btn-sm" onclick="editarVeterinario('${v.idVeterinario}')">Editar</button>
