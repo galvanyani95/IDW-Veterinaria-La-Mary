@@ -3,7 +3,6 @@ const mascotas = JSON.parse(localStorage.getItem('mascotas')) || [];
 
 const listadoMascotas = document.getElementById('listado-mascotas');
 const total = document.getElementById('total');
-const buscador = document.getElementById('buscador');
 const formulario = document.getElementById('form-mascota');
 const formularioEditar = document.getElementById('form-editar');
 
@@ -15,24 +14,7 @@ let idMascotaEditar;
 function render() {
     listadoMascotas.innerHTML = '';
 
-     // Filtramos según lo escrito en el buscador (por mascota o por dueño)
-    const texto = buscador.value.trim().toLowerCase();
-    const lista = mascotas.filter((m) =>
-        m.nombreMascota.toLowerCase().includes(texto) ||
-        m.nombreDuenio.toLowerCase().includes(texto)
-    );
-
-    if (lista.length === 0) {
-        listadoMascotas.innerHTML = `
-            <tr>
-                <td class="fila-vacia" colspan="7">
-                    ${texto ? 'No se encontraron mascotas que coincidan con la búsqueda.' : 'Todavía no hay mascotas registradas.'}
-                </td>
-            </tr>
-        `;
-    }
-
-    lista.forEach((mascota) => {
+    mascotas.forEach((mascota) => {
         listadoMascotas.innerHTML += `
             <tr>
                 <td>${mascota.nombreDuenio}</td>
@@ -141,6 +123,3 @@ function eliminarMascota(id) {
         }
     }
 }
-
-// Cada vez que se escribe en el buscador, se vuelve a dibujar la tabla filtrada
-buscador.addEventListener('input', render);
