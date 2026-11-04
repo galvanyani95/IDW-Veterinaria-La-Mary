@@ -27,17 +27,13 @@ function actualizarNavbar() {
     }
 }
 
-// NUEVO: Validación para proteger páginas privadas
 document.addEventListener('DOMContentLoaded', () => {
     actualizarNavbar();
 
-    // Obtenemos el nombre del archivo actual (ej: 'mascotas.html', 'panelAdmin.html')
     const paginaActual = window.location.pathname.split('/').pop();
 
-    // Páginas públicas donde permitimos entrar sin loguearse
-    const paginasPublicas = ['index.html', 'contacto.html', 'institucional.html', ''];
+    const paginasPublicas = ['index.html', 'contacto.html', 'institucional.html', 'login.html'];
 
-    // Si no está logueado y la página actual NO es pública, redirigir al index
     if (!estaLogueado() && !paginasPublicas.includes(paginaActual)) {
         window.location.href = 'login.html';
     }
