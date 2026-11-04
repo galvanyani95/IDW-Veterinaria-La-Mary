@@ -96,81 +96,126 @@ Para realizarlo vamos a utilizar HTML, CSS, JavaScript y Bootstrap, guardando al
   npx vite.
 
 ## 1 ENTREGA DE AVANCES 8-9-2026
+
 - Guadalupe Cristina Chalup
 - Braian Galvan
 - Yanina Gisel Galvan
 - María Belén Hermida
 - Sonia Monte
-  
-   ## 2da entrega:REQUERIMIENTOS A CUMPLIMENTAR
- - Adaptación del diseño mediante el uso de clases y componentes de Bootstrap 5. Por ejemplo:
-sistema de grillas, espaciados, cards, modals, formularios, alerts, botones, etc..
--Se deberá combinar el diseño propio con las utilidades provistas por Bootstrap.
+
+  ## 2da entrega:REQUERIMIENTOS A CUMPLIMENTAR
+
+- Adaptación del diseño mediante el uso de clases y componentes de Bootstrap 5. Por ejemplo:
+  sistema de grillas, espaciados, cards, modals, formularios, alerts, botones, etc..
+  -Se deberá combinar el diseño propio con las utilidades provistas por Bootstrap.
 - Listar en la portada un catálogo de profesionales utilizando el sistema de grillas de Bootstrap. Cada
-card deberá contener al menos: foto, nombre y especialidad.
+  card deberá contener al menos: foto, nombre y especialidad.
 - Incorporación de una barra de navegación responsiva y funcional, coherente con la estructura del
-sitio, que incluya: Versión colapsada para móvil (menú hamburguesa). Acceso a todas las páginas
-del sitio web. Diseño claro y consistente.
+  sitio, que incluya: Versión colapsada para móvil (menú hamburguesa). Acceso a todas las páginas
+  del sitio web. Diseño claro y consistente.
 - Opcional: Implementar modo oscuro utilizando utilidades de Bootstrap y/o CSS variables
-  
+
   ## 2 ENTREGA DE AVANCES 29-9-2026
+
 - Guadalupe Cristina Chalup
 - Braian Galvan
 - Yanina Gisel Galvan
 - María Belén Hermida
 - Sonia Monte
-   ## 3ra entrega:REQUERIMIENTOS A CUMPLIMENTAR
+
+  ## 3ra entrega:REQUERIMIENTOS A CUMPLIMENTAR
+
   Generales
   -Crear una página de gestión para cada entidad, accesible desde la barra de navegación del
-sitio.
+  sitio.
   -Escribir el código JavaScript en archivos externos (.js) vinculados a cada página.
--Maquetar los formularios y las tablas con componentes de Bootstrap 5, manteniendo el
-diseño responsivo logrado en la entrega anterior.
+  -Maquetar los formularios y las tablas con componentes de Bootstrap 5, manteniendo el
+  diseño responsivo logrado en la entrega anterior.
   -Almacenar cada entidad en LocalStorage bajo su propia clave.
   -Generar automáticamente el identificador de cada registro al momento del alta. El usuario
-no deberá ingresarlo.
+  no deberá ingresarlo.
   -Al cargar cada página, mostrar en la tabla los datos almacenados en LocalStorage
 
   ##Entidad Mascotas
-  
+
 Cada mascota deberá registrar los siguientes datos:
-  -idMascota: string con uid identificatorio (generado automáticamente).
-  -nombreMascota: string.
-  -nombreDuenio: string.
-  -color: string.
-  -edad: número entero.
-  -peso: número decimal.
-  
+-idMascota: string con uid identificatorio (generado automáticamente).
+-nombreMascota: string.
+-nombreDuenio: string.
+-color: string.
+-edad: número entero.
+-peso: número decimal.
+
 #Funcionalidades requeridas:
 
 - Registrar: formulario con un campo por cada dato (excepto el id). Al enviarlo, la mascota
-deberá guardarse en LocalStorage.
+  deberá guardarse en LocalStorage.
 - Listar: mostrar en una tabla todas las mascotas registradas. La tabla y el total de mascotas
-registradas deberán actualizarse luego de cada alta, edición o eliminación.
+  registradas deberán actualizarse luego de cada alta, edición o eliminación.
 - Editar: cada fila contará con un botón que cargue los datos de la mascota en el formulario
-para modificarlos y guardar los cambios.
+  para modificarlos y guardar los cambios.
 - Eliminar: cada fila contará con un botón para borrar la mascota, previa confirmación del
-usuario.
+  usuario.
 
 ##Entidad Veterinarios
 Cada veterinario deberá registrar los siguientes datos:
-  -idVeterinario: string con uid identificatorio (generado automáticamente).
-  -matricula: número entero.
-  -nombre: string.
-  -especializacion: string.
-  -valorConsulta: número decimal.
-  
+-idVeterinario: string con uid identificatorio (generado automáticamente).
+-matricula: número entero.
+-nombre: string.
+-especializacion: string.
+-valorConsulta: número decimal.
+
 #Funcionalidades requeridas:
 
 - Registrar: formulario con un campo por cada dato (excepto el id). Al enviarlo, el veterinario
-deberá guardarse en LocalStorage.
+  deberá guardarse en LocalStorage.
 - Listar: mostrar en una tabla todos los veterinarios registrados, con el valor de consulta en
-formato moneda.
+  formato moneda.
 - Editar: cada fila contará con un botón que cargue los datos del veterinario en el formulario
-para modificarlos y guardar los cambios.
+  para modificarlos y guardar los cambios.
 - Eliminar: cada fila contará con un botón para borrar el veterinario, previa confirmación del
-usuario
+  usuario
   ## 3 ENTREGA DE AVANCES 23-10-2026
+- Guadalupe Cristina Chalup
+- Braian Galvan
+- Yanina Gisel Galvan
+- María Belén Hermida
+- Sonia Monte
+
+## 4ta entrega:REQUERIMIENTOS A CUMPLIMENTAR
+
+##Generales:
+• Mantener las funcionalidades desarrolladas en las entregas anteriores, corrigiendo las
+observaciones realizadas en sus devoluciones.
+• Persistir las nuevas entidades en LocalStorage, manteniendo el estilo de las páginas de
+administración ya realizadas.
+
+##Entidades:
+Cumplimentar el desarrollo requerido respecto de las entidades:
+• Turnos: registrar, listar y eliminar.
+• Historia Clínica: registrar, listar y visualizar el historial completo de una mascota.
+Inicio de sesión con DummyJSON
+Se utilizará la API pública DummyJSON (https://dummyjson.com/docs/auth). Para las pruebas puede
+usarse el usuario emilys con contraseña emilyspass.
+• Crear una página de login que envíe usuario y contraseña mediante fetch a
+https://dummyjson.com/auth/login e informe al usuario si las credenciales son
+incorrectas.
+• Guardar el token recibido en sessionStorage.
+• Barra de navegación: las opciones de administración (Mascotas, Veterinarios, Turnos e
+Historia Clínica, o Panel de Administración) solo deberán mostrarse cuando haya una sesión
+iniciada. Un visitante sin sesión únicamente verá las opciones públicas del sitio y el acceso al
+login.
+• Protección de páginas: las páginas de administración no deberán poder utilizarse si se accede
+a ellas escribiendo directamente su URL en el navegador sin haber iniciado sesión. En ese
+caso, el usuario deberá ser redirigido a la página de login.
+• Incluir la opción de cerrar sesión.
+
+## link del video
+
+-
+
+## 4 ENTREGA FINAL 12-11-2026
+
 - Guadalupe Cristina Chalup
 - Braian Galvan
 - Yanina Gisel Galvan
