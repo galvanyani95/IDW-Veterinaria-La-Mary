@@ -13,7 +13,7 @@ const selectVeterinario = document.getElementById('selectVeterinario');
 const modalEditar = new bootstrap.Modal(document.getElementById('modal-editar'));
 let idHistoriaEditar;
 
-// Cargar opciones en Mascota y Veterinario
+// Cargar opciones en Mascota y Veterinario (Formulario principal)
 function cargarSelects() {
     if (selectMascota) {
         selectMascota.innerHTML = '<option value="">Seleccione una mascota...</option>';
@@ -26,6 +26,26 @@ function cargarSelects() {
         selectVeterinario.innerHTML = '<option value="">Seleccione un veterinario...</option>';
         veterinarios.forEach((v) => {
             selectVeterinario.innerHTML += `<option value="${v.idVeterinario}">${v.nombre} - ${v.especializacion}</option>`;
+        });
+    }
+}
+
+// Cargar opciones en Mascota y Veterinario (Modal de Edición)
+function cargarSelectsEdicion() {
+    const editarSelectMascota = document.getElementById('editarSelectMascota');
+    const editarSelectVeterinario = document.getElementById('editarSelectVeterinario');
+
+    if (editarSelectMascota) {
+        editarSelectMascota.innerHTML = '<option value="">Seleccione una mascota...</option>';
+        mascotas.forEach((m) => {
+            editarSelectMascota.innerHTML += `<option value="${m.idMascota}">${m.nombreMascota} (Dueño: ${m.nombreDuenio})</option>`;
+        });
+    }
+
+    if (editarSelectVeterinario) {
+        editarSelectVeterinario.innerHTML = '<option value="">Seleccione un veterinario...</option>';
+        veterinarios.forEach((v) => {
+            editarSelectVeterinario.innerHTML += `<option value="${v.idVeterinario}">${v.nombre} - ${v.especializacion}</option>`;
         });
     }
 }
@@ -61,7 +81,6 @@ function render() {
     }
 }
 
-
 cargarSelects();
 render();
 
@@ -69,6 +88,7 @@ function guardarEnLocalStorage() {
     localStorage.setItem('historiasClinicas', JSON.stringify(historias));
 }
 
+// Crear nueva historia clínica
 if (formulario) {
     formulario.addEventListener('submit', (evento) => {
         evento.preventDefault();
@@ -92,16 +112,27 @@ if (formulario) {
     });
 }
 
+// Abrir modal y rellenar con datos a editar
 function editarHistoria(id) {
     const historiaAEditar = historias.find((h) => h.idHistoriaClinica === id);
     
     if (historiaAEditar) {
         idHistoriaEditar = id;
+        
+        // Primero cargamos los selects del modal para que tengan opciones
+        cargarSelectsEdicion();
+
+        // Rellenamos con los valores actuales
+        document.getElementById('editarSelectMascota').value = historiaAEditar.mascota;
+        document.getElementById('editarSelectVeterinario').value = historiaAEditar.veterinario;
+        document.getElementById('editarFechaHora').value = historiaAEditar.fechaHora;
         document.getElementById('editarObservaciones').value = historiaAEditar.observaciones;
+        
         modalEditar.show();
     }
 }
 
+// Guardar los cambios del formulario de edición
 if (formularioEditar) {
     formularioEditar.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -111,6 +142,9 @@ if (formularioEditar) {
             const historia = historias.find((h) => h.idHistoriaClinica === idHistoriaEditar);
 
             if (historia) {
+                historia.mascota = document.getElementById('editarSelectMascota').value;
+                historia.veterinario = document.getElementById('editarSelectVeterinario').value;
+                historia.fechaHora = datos.get('fechaHora');
                 historia.observaciones = datos.get('editarObservaciones').trim();
 
                 guardarEnLocalStorage();
@@ -124,6 +158,7 @@ if (formularioEditar) {
     });
 }
 
+// Eliminar historia clínica
 function eliminarHistoria(id) {
     const confirmar = confirm("¿Está seguro de que desea eliminar esta historia clínica?");
 
