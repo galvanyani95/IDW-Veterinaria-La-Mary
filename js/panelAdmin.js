@@ -32,3 +32,4 @@ const totalHistoriaElem = document.getElementById('total-historia-clinica');
 if (totalHistoriaElem) {
     totalHistoriaElem.textContent = historiaClinica.length + ' Registrados';
 }
+
