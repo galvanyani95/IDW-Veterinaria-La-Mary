@@ -1,4 +1,4 @@
-// Usamos 'let' para poder modificar el array global cuando sea necesario
+// 'let' para poder modificar el array global si es necesario
 let historias = JSON.parse(localStorage.getItem('historiasClinicas')) || [];
 const mascotas = JSON.parse(localStorage.getItem('mascotas')) || [];
 const veterinarios = JSON.parse(localStorage.getItem('veterinarios')) || [];
@@ -13,7 +13,7 @@ const selectVeterinario = document.getElementById('selectVeterinario');
 const modalEditar = new bootstrap.Modal(document.getElementById('modal-editar'));
 let idHistoriaEditar;
 
-// Cargar opciones en los selects de Mascota y Veterinario
+// Cargar opciones en Mascota y Veterinario
 function cargarSelects() {
     if (selectMascota) {
         selectMascota.innerHTML = '<option value="">Seleccione una mascota...</option>';
@@ -61,7 +61,7 @@ function render() {
     }
 }
 
-// Inicializamos select y render al cargar
+
 cargarSelects();
 render();
 
