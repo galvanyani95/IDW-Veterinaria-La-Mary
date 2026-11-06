@@ -1,4 +1,5 @@
-const historias = JSON.parse(localStorage.getItem('historiasClinicas')) || [];
+// Usamos 'let' para poder modificar el array global cuando sea necesario
+let historias = JSON.parse(localStorage.getItem('historiasClinicas')) || [];
 const mascotas = JSON.parse(localStorage.getItem('mascotas')) || [];
 const veterinarios = JSON.parse(localStorage.getItem('veterinarios')) || [];
 
@@ -58,8 +59,9 @@ function render() {
 cargarSelects();
 render();
 
+// CORREGIDO: Usar estrictamente 'historiasClinicas' (plural)
 function guardarEnLocalStorage() {
-    localStorage.setItem('historiasClinica', JSON.stringify(historias));
+    localStorage.setItem('historiasClinicas', JSON.stringify(historias));
 }
 
 formulario.addEventListener('submit', (evento) => {
@@ -75,7 +77,9 @@ formulario.addEventListener('submit', (evento) => {
         observaciones: datos.get('observaciones').trim()
     };
 
+    // CORREGIDO: Usar el array global directamente en lugar de declarar un 'let historias' local
     historias.push(nuevaHistoria);
+
     guardarEnLocalStorage();
     render();
     formulario.reset();
