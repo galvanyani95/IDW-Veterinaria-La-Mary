@@ -69,8 +69,8 @@ formulario.addEventListener('submit', (evento) => {
 
     const nuevaHistoria = {
         idHistoriaClinica: crypto.randomUUID(),
-        mascota: datos.get('selectMascota'),
-        veterinario: datos.get('selectVeterinario'),
+        mascota: document.getElementById('selectMascota').value,
+        veterinario: document.getElementById('selectVeterinario').value,
         fechaHora: datos.get('fechaHora'),
         observaciones: datos.get('observaciones').trim()
     };
@@ -79,6 +79,7 @@ formulario.addEventListener('submit', (evento) => {
     guardarEnLocalStorage();
     render();
     formulario.reset();
+    cargarSelects();
 });
 
 function editarHistoria(id) {
