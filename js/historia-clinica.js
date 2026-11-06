@@ -59,7 +59,7 @@ cargarSelects();
 render();
 
 function guardarEnLocalStorage() {
-    localStorage.setItem('historiasClinicas', JSON.stringify(historias));
+    localStorage.setItem('historiasClinica', JSON.stringify(historias));
 }
 
 formulario.addEventListener('submit', (evento) => {
