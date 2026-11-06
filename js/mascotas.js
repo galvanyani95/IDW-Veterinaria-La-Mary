@@ -1,4 +1,4 @@
-const mascotas = JSON.parse(localStorage.getItem('mascotas')) || [];
+const mascotas= JSON.parse(localStorage.getItem('mascotas')) || [];
 
 const listadoMascotas = document.getElementById('listado-mascotas');
 const total = document.getElementById('total');
