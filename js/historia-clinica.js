@@ -13,7 +13,7 @@ const selectVeterinario = document.getElementById('selectVeterinario');
 const modalEditar = new bootstrap.Modal(document.getElementById('modal-editar'));
 let idHistoriaEditar;
 
-// Cargar opciones en Mascota y Veterinario (Formulario principal)
+// Cargar opciones en Mascota y Veterinario en el formulario
 function cargarSelects() {
     if (selectMascota) {
         selectMascota.innerHTML = '<option value="">Seleccione una mascota...</option>';
@@ -30,7 +30,7 @@ function cargarSelects() {
     }
 }
 
-// Cargar opciones en Mascota y Veterinario (Modal de Edición)
+// Cargar opciones en Mascota y Veterinario (modal para editar)
 function cargarSelectsEdicion() {
     const editarSelectMascota = document.getElementById('editarSelectMascota');
     const editarSelectVeterinario = document.getElementById('editarSelectVeterinario');
@@ -112,28 +112,28 @@ if (formulario) {
     });
 }
 
-// Abrir modal y rellenar con todos los datos a editar
+// Abrir modal y completar con todos los datos a editar
 function editarHistoria(id) {
     const historiaAEditar = historias.find((h) => h.idHistoriaClinica === id);
     
     if (historiaAEditar) {
         idHistoriaEditar = id;
         
-        // 1. Poblamos los selects del modal con las opciones disponibles
+        
         cargarSelectsEdicion();
 
-        // 2. Asignamos los valores actuales de la historia seleccionada
+        // Asignar los valores actuales de la historia seleccionada
         document.getElementById('editarSelectMascota').value = historiaAEditar.mascota;
         document.getElementById('editarSelectVeterinario').value = historiaAEditar.veterinario;
         document.getElementById('editarFechaHora').value = historiaAEditar.fechaHora;
         document.getElementById('editarObservaciones').value = historiaAEditar.observaciones;
         
-        // 3. Mostramos el modal
+        // Mostrar el modal
         modalEditar.show();
     }
 }
 
-// Guardar los cambios del formulario de edición (todos los campos)
+// Guardar los cambios del formulario para editar
 if (formularioEditar) {
     formularioEditar.addEventListener('submit', (e) => {
         e.preventDefault();
