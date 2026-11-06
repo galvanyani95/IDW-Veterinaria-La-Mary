@@ -112,27 +112,28 @@ if (formulario) {
     });
 }
 
-// Abrir modal y rellenar con datos a editar
+// Abrir modal y rellenar con todos los datos a editar
 function editarHistoria(id) {
     const historiaAEditar = historias.find((h) => h.idHistoriaClinica === id);
     
     if (historiaAEditar) {
         idHistoriaEditar = id;
         
-        // Primero cargamos los selects del modal para que tengan opciones
+        // 1. Poblamos los selects del modal con las opciones disponibles
         cargarSelectsEdicion();
 
-        // Rellenamos con los valores actuales
+        // 2. Asignamos los valores actuales de la historia seleccionada
         document.getElementById('editarSelectMascota').value = historiaAEditar.mascota;
         document.getElementById('editarSelectVeterinario').value = historiaAEditar.veterinario;
         document.getElementById('editarFechaHora').value = historiaAEditar.fechaHora;
         document.getElementById('editarObservaciones').value = historiaAEditar.observaciones;
         
+        // 3. Mostramos el modal
         modalEditar.show();
     }
 }
 
-// Guardar los cambios del formulario de edición
+// Guardar los cambios del formulario de edición (todos los campos)
 if (formularioEditar) {
     formularioEditar.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -144,7 +145,7 @@ if (formularioEditar) {
             if (historia) {
                 historia.mascota = document.getElementById('editarSelectMascota').value;
                 historia.veterinario = document.getElementById('editarSelectVeterinario').value;
-                historia.fechaHora = datos.get('fechaHora');
+                historia.fechaHora = datos.get('editarFechaHora');
                 historia.observaciones = datos.get('editarObservaciones').trim();
 
                 guardarEnLocalStorage();
