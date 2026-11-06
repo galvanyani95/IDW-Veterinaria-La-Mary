@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Veterinaria la Mary - Panel Administrativo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+    <link rel="icon" href="img/logo.png" type="image/png"/>
+    <script src="js/sesion.js" defer></script>
+    <script src="js/panelAdmin.js" defer></script>
+  </head>
+  <body class="d-flex flex-column min-vh-100">
+    <header>
+      <nav
+        class="navbar navbar-expand-lg navbar-dark bg-success shadow-sm sticky-top">
+        <div class="container">
+          <a class="navbar-brand d-flex align-items-center" href="index.html">
+            <img
+              src="img/logo.png"
+              alt="Logo Veterinaria Mary"
+              height="45"
+              class="me-2"
+            />
+            <span class="fw-bold fs-3">Veterinaria La Mary</span>
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Abrir menú"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="navbar-nav ms-auto">
+              <a href="index.html" class="nav-link">Inicio</a>
+              <a href="contacto.html" class="nav-link">Contacto</a>              
+              <a href="institucional.html" class="nav-link">Institucional</a>
+              <a href="panelAdmin.html" class="nav-link active">Panel Admin</a>
+              <button class="btn btn-success" onclick="cerrarSesion()">Cerrar sesión</button>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+  <main>
+    <section class="container py-5">
+
+      <span class="badge rounded-pill text-bg-success fw-semibold">PANEL ADMIN</span>
+      <h2 class="fs-1 fw-semibold mt-2">Hola, <span id="nombre-usuario"></span></h2>
+      <p class="mb-4">Elegí un módulo para gestionar.</p>
+
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+
+        <article class="col">
+          <div class="card h-100">
+            <div class="card-body d-flex flex-column gap-2">
+              <h3 class="card-title fs-4">Mascotas</h3>
+              <p class="card-text">Alta, edición y baja de mascotas.</p>
+              <span class="badge text-bg-secondary align-self-start" id="total-mascotas">0</span>
+              <a href="mascotas.html" class="btn btn-success mt-auto">Ingresar</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="col">
+          <div class="card h-100">
+            <div class="card-body d-flex flex-column gap-2">
+              <h3 class="card-title fs-4">Veterinarios</h3>
+              <p class="card-text">Gestión del equipo profesional.</p>
+              <span class="badge text-bg-secondary align-self-start" id="total-veterinarios">0</span>
+              <a href="veterinarios.html" class="btn btn-success mt-auto">Ingresar</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="col">
+          <div class="card h-100">
+            <div class="card-body d-flex flex-column gap-2">
+              <h3 class="card-title fs-4">Turnos</h3>
+              <p class="card-text">Agenda de turnos de la clínica.</p>
+              <span class="badge text-bg-secondary align-self-start" id="total-turnos">0</span>
+              <a href="turnos.html" class="btn btn-success mt-auto">Ingresar</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="col">
+          <div class="card h-100">
+            <div class="card-body d-flex flex-column gap-2">
+              <h3 class="card-title fs-4">Historia Clínica</h3>
+              <p class="card-text">Registro de consultas y tratamientos.</p>
+              <span class="badge text-bg-secondary align-self-start" id="total-historia-clinica">0</span>
+              <a href="historia-clinica.html" class="btn btn-success mt-auto">Ingresar</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+ <footer class="text-white pt-5 pb-4" style="background-color: #212529;">
+    <div class="container text-center text-md-start">
+        <div class="row text-center text-md-start">
+                        
+            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                <h5 class="text-uppercase mb-4 font-weight-bold text-white">Veterinaria La Mary</h5>
+                <p class="text-white">Somos una veterinaria en constante crecimiento. Estamos para dar el mejor servicio a nuestros pacientes.</p>
+            </div>
+            
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                <h5 class="text-uppercase mb-4 font-weight-bold text-white">Servicios</h5>
+                <p>
+                    <a href="index.html#consultas" class="text-white text-decoration-none">Consultas</a>
+                </p>
+                <p>
+                    <a href="index.html#vacunacion" class="text-white text-decoration-none">Vacunación</a>
+                </p>
+                <p>
+                    <a href="index.html#estetica" class="text-white text-decoration-none">Estética</a>
+                </p>
+            </div>
+
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+                <h5 class="text-uppercase mb-4 font-weight-bold text-white">Legales</h5>
+                <p>
+                    <a href="institucional.html#terminos" class="text-white text-decoration-none">Términos y Cond.</a>
+                </p>
+                <p>
+                    <a href="institucional.html#privacidad" class="text-white text-decoration-none">Privacidad</a>
+                </p>
+                <p>
+                    <a href="institucional.html#nosotros" class="text-white text-decoration-none">Sobre Nosotros</a>
+                </p>
+            </div>
+            
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                <h5 class="text-uppercase mb-4 font-weight-bold text-white">Contacto</h5>
+                <p class="text-white">
+                    <i class="bi bi-geo-alt-fill me-2"></i> Calle Falsa 123, Entre Ríos
+                </p>
+                <p class="text-white">
+                    <i class="bi bi-envelope-fill me-2"></i> contacto@veterinariamary.com
+                </p>
+                <p class="text-white">
+                    <i class="bi bi-telephone-fill me-2"></i> +54 11 0000-0000
+                </p>
+            </div>
+
+            <hr class="mb-4 mt-4 border-white">
+
+            <div class="col-md-7 col-lg-8 text-center text-md-start">
+                <p class="text-white">© 2026 Veterinaria La Mary. Todos los derechos reservados.</p>
+            </div>
+
+            <div class="col-md-5 col-lg-4">
+                <div class="text-center text-md-end">
+                    <ul class="list-unstyled list-inline mb-0">
+                        <li class="list-inline-item">
+                            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="text-white fs-4 me-3" title="Facebook Oficial">
+                                <i class="bi bi-facebook"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="text-white fs-4 me-3" title="Instagram Oficial">
+                                <i class="bi bi-instagram"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="text-white fs-4" title="Canal de YouTube">
+                                <i class="bi bi-youtube"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+  </footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>
