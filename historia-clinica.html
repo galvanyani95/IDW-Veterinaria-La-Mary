@@ -36,7 +36,7 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <div class="navbar-nav ms-auto">
               <a href="index.html" class="nav-link">Inicio</a>
-              <a href="contacto.html" class="nav-link">Contacto</a>             
+              <a href="contacto.html" class="nav-link">Contacto</a>            
               <a href="institucional.html" class="nav-link">Institucional</a>
               <a href="panelAdmin.html" class="nav-link">Panel Admin</a>
               <button class="btn btn-success" onclick="cerrarSesion()">Cerrar sesión</button>
@@ -135,7 +135,7 @@
       </div>
     </main>
 
-    <!-- Modal para editar historia clínica  -->
+    <!-- Modal para editar historia clínica (Todos los campos) -->
     <div
       class="modal fade"
       id="modal-editar"
@@ -158,13 +158,42 @@
               ></button>
             </div>
             <div class="modal-body">
+              <!-- Selector de Mascota para edición -->
+              <div class="mb-3">
+                <label for="editarSelectMascota" class="form-label">Mascota</label>
+                <select class="form-select" id="editarSelectMascota" required>
+                  <option value="">Seleccione una mascota...</option>
+                </select>
+              </div>
+
+              <!-- Selector de Veterinario para edición -->
+              <div class="mb-3">
+                <label for="editarSelectVeterinario" class="form-label">Veterinario a cargo</label>
+                <select class="form-select" id="editarSelectVeterinario" required>
+                  <option value="">Seleccione un veterinario...</option>
+                </select>
+              </div>
+
+              <!-- Fecha y hora de atención para edición -->
+              <div class="mb-3">
+                <label for="editarFechaHora" class="form-label">Fecha y hora de atención</label>
+                <input
+                  type="datetime-local"
+                  class="form-control"
+                  id="editarFechaHora"
+                  name="editarFechaHora"
+                  required
+                />
+              </div>
+
+              <!-- Observaciones para edición -->
               <div class="mb-3">
                 <label for="editarObservaciones" class="form-label">Observaciones</label>
                 <textarea
                   class="form-control"
                   id="editarObservaciones"
                   name="editarObservaciones"
-                  rows="4"
+                  rows="3"
                   required
                 ></textarea>
               </div>
