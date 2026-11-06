@@ -15,22 +15,26 @@ let idHistoriaEditar;
 
 // Cargar opciones en los selects de Mascota y Veterinario
 function cargarSelects() {
-    selectMascota.innerHTML = '<option value="">Seleccione una mascota...</option>';
-    mascotas.forEach((m) => {
-        selectMascota.innerHTML += `<option value="${m.idMascota}">${m.nombreMascota} (Dueño: ${m.nombreDuenio})</option>`;
-    });
+    if (selectMascota) {
+        selectMascota.innerHTML = '<option value="">Seleccione una mascota...</option>';
+        mascotas.forEach((m) => {
+            selectMascota.innerHTML += `<option value="${m.idMascota}">${m.nombreMascota} (Dueño: ${m.nombreDuenio})</option>`;
+        });
+    }
 
-    selectVeterinario.innerHTML = '<option value="">Seleccione un veterinario...</option>';
-    veterinarios.forEach((v) => {
-        selectVeterinario.innerHTML += `<option value="${v.idVeterinario}">${v.nombre} - ${v.especializacion}</option>`;
-    });
+    if (selectVeterinario) {
+        selectVeterinario.innerHTML = '<option value="">Seleccione un veterinario...</option>';
+        veterinarios.forEach((v) => {
+            selectVeterinario.innerHTML += `<option value="${v.idVeterinario}">${v.nombre} - ${v.especializacion}</option>`;
+        });
+    }
 }
 
 function render() {
+    if (!listadoHistorias) return;
     listadoHistorias.innerHTML = '';
 
     historias.forEach((h) => {
-        // Buscamos los nombres correspondientes a los IDs para mostrarlos en la tabla
         const mascotaObj = mascotas.find((m) => m.idMascota === h.mascota);
         const vetObj = veterinarios.find((v) => v.idVeterinario === h.veterinario);
 
@@ -52,39 +56,41 @@ function render() {
         `;
     });
 
-    total.textContent = historias.length;
+    if (total) {
+        total.textContent = historias.length;
+    }
 }
 
 // Inicializamos select y render al cargar
 cargarSelects();
 render();
 
-// CORREGIDO: Usar estrictamente 'historiasClinicas' (plural)
 function guardarEnLocalStorage() {
     localStorage.setItem('historiasClinicas', JSON.stringify(historias));
 }
 
-formulario.addEventListener('submit', (evento) => {
-    evento.preventDefault();
+if (formulario) {
+    formulario.addEventListener('submit', (evento) => {
+        evento.preventDefault();
 
-    const datos = new FormData(formulario);
+        const datos = new FormData(formulario);
 
-    const nuevaHistoria = {
-        idHistoriaClinica: crypto.randomUUID(),
-        mascota: document.getElementById('selectMascota').value,
-        veterinario: document.getElementById('selectVeterinario').value,
-        fechaHora: datos.get('fechaHora'),
-        observaciones: datos.get('observaciones').trim()
-    };
+        const nuevaHistoria = {
+            idHistoriaClinica: crypto.randomUUID(),
+            mascota: document.getElementById('selectMascota').value,
+            veterinario: document.getElementById('selectVeterinario').value,
+            fechaHora: datos.get('fechaHora'),
+            observaciones: datos.get('observaciones').trim()
+        };
 
-    // CORREGIDO: Usar el array global directamente en lugar de declarar un 'let historias' local
-    historias.push(nuevaHistoria);
+        historias.push(nuevaHistoria);
 
-    guardarEnLocalStorage();
-    render();
-    formulario.reset();
-    cargarSelects();
-});
+        guardarEnLocalStorage();
+        render();
+        formulario.reset();
+        cargarSelects();
+    });
+}
 
 function editarHistoria(id) {
     const historiaAEditar = historias.find((h) => h.idHistoriaClinica === id);
@@ -96,25 +102,27 @@ function editarHistoria(id) {
     }
 }
 
-formularioEditar.addEventListener('submit', (e) => {
-    e.preventDefault();
+if (formularioEditar) {
+    formularioEditar.addEventListener('submit', (e) => {
+        e.preventDefault();
 
-    try {
-        const datos = new FormData(formularioEditar);
-        const historia = historias.find((h) => h.idHistoriaClinica === idHistoriaEditar);
+        try {
+            const datos = new FormData(formularioEditar);
+            const historia = historias.find((h) => h.idHistoriaClinica === idHistoriaEditar);
 
-        if (historia) {
-            historia.observaciones = datos.get('editarObservaciones').trim();
+            if (historia) {
+                historia.observaciones = datos.get('editarObservaciones').trim();
 
-            guardarEnLocalStorage();
-            render();
-            modalEditar.hide();
-            idHistoriaEditar = undefined;
+                guardarEnLocalStorage();
+                render();
+                modalEditar.hide();
+                idHistoriaEditar = undefined;
+            }
+        } catch (error) {
+            console.error("Error al actualizar la historia clínica:", error);
         }
-    } catch (error) {
-        console.error("Error al actualizar la historia clínica:", error);
-    }
-});
+    });
+}
 
 function eliminarHistoria(id) {
     const confirmar = confirm("¿Está seguro de que desea eliminar esta historia clínica?");
