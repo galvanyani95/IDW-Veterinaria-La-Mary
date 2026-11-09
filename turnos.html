@@ -4,30 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Veterinaria La Mary</title>
-    <link
-      rel="stylesheet"
-      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-    />
-    <link rel="icon" href="img/logo.png" type="image/png" />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
+    <link rel="icon" href="img/logo.png" type="image/png"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <script src="js/sesion.js" defer></script>
+    <script src="js/turno.js"></script>
   </head>
+
   <body>
     <header>
-      <nav
-        class="navbar navbar-expand-lg navbar-dark bg-success shadow-sm sticky-top"
-      >
+      <nav class="navbar navbar-expand-lg navbar-dark bg-success shadow-sm sticky-top">
         <div class="container">
           <a class="navbar-brand d-flex align-items-center" href="index.html">
             <img
               src="img/logo.png"
               alt="Logo Veterinaria Mary"
               height="45"
-              class="me-2"
-            />
+              class="me-2"/>
             <span class="fw-bold fs-3">Veterinaria La Mary</span>
           </a>
           <button
@@ -37,18 +31,16 @@
             data-bs-target="#navbarNav"
             aria-controls="navbarNav"
             aria-expanded="false"
-            aria-label="Abrir menú"
-          >
-            <span class="navbar-toggler-icon"></span>
+            aria-label="Abrir menú">
+          <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <div class="navbar-nav ms-auto">
               <a href="index.html" class="nav-link">Inicio</a>
-              <a href="contacto.html" class="nav-link">Contacto</a>
+              <a href="contacto.html" class="nav-link">Contacto</a>            
               <a href="institucional.html" class="nav-link">Institucional</a>
-              <a href="mascotas.html" class="nav-link">Mascotas</a>
-              <a href="veterinarios.html" class="nav-link">Veterinarios</a>
-              <a href="turno.html" class="nav-link active">Turnos</a>
+              <a href="panelAdmin.html" class="nav-link">Panel Admin</a>
+              <button class="btn btn-success" onclick="cerrarSesion()">Cerrar sesión</button>
             </div>
           </div>
         </div>
@@ -58,7 +50,6 @@
     <main class="container py-4">
       <h1 class="h2 mb-4">Gestión de turnos</h1>
 
-      <!-- Buscador de turnos -->
       <div class="mb-3">
         <label for="buscador" class="form-label"> Buscar turno </label>
         <input
@@ -71,7 +62,6 @@
 
       <section class="container py-4">
         <div class="row g-4">
-          <!-- Listado de turnos -->
           <article class="col-12 col-lg-7">
             <h2 class="fs-3 fw-semibold mt-2 d-flex align-items-center">
               Turnos registrados
@@ -96,12 +86,10 @@
             </div>
           </article>
 
-          <!-- Formulario de registro de turnos -->
           <article class="col-12 col-lg-5">
             <form
               class="d-flex flex-column gap-3 p-4 bg-body-tertiary rounded-4"
-              id="form-turnos"
-            >
+              id="form-turnos">
               <h3 class="fs-4">Nuevo turno</h3>
 
               <div>
@@ -113,8 +101,7 @@
                   name="fechaHora"
                   id="fechaHora"
                   class="form-control"
-                  required
-                />
+                  required/>
               </div>
 
               <div>
@@ -123,10 +110,8 @@
                   name="mascota"
                   id="mascota"
                   class="form-select"
-                  required
-                >
+                  required>
                   <option value="">Seleccione una mascota</option>
-                  <!-- Opciones de mascotas se llenarán dinámicamente -->
                 </select>
               </div>
 
@@ -158,14 +143,12 @@
       </section>
     </main>
 
-    <!-- Modal para editar turnos -->
     <div
       class="modal fade"
       id="modal-editar-turno"
       tabindex="-1"
       aria-labelledby="titulo-modal-turno"
-      aria-hidden="true"
-    >
+      aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <form id="form-editar-turno">
@@ -190,8 +173,7 @@
                   id="editarIdTurno"
                   name="editarIdTurno"
                   class="form-control"
-                  readonly
-                />
+                  readonly/>
               </div>
 
               <div class="mb-3">
@@ -252,7 +234,6 @@
       </div>
     </div>
 
-    <!-- Catálogo de turnos -->
     <section class="container mb-5">
       <div class="text-center mb-4">
         <h2 class="fs-2">Catálogo de turnos</h2>
@@ -397,6 +378,5 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/turno.js"></script>
   </body>
 </html>
