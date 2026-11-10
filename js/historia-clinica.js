@@ -1,4 +1,4 @@
-// 'let' para poder modificar el array global si es necesario
+
 let historias = JSON.parse(localStorage.getItem('historiasClinicas')) || [];
 const mascotas = JSON.parse(localStorage.getItem('mascotas')) || [];
 const veterinarios = JSON.parse(localStorage.getItem('veterinarios')) || [];
@@ -50,11 +50,16 @@ function cargarSelectsEdicion() {
     }
 }
 
-function render() {
+function render(idFiltro = '') {
     if (!listadoHistorias) return;
     listadoHistorias.innerHTML = '';
 
-    historias.forEach((h) => {
+    // Filtrar historias si se seleccionó una mascota específica
+    const historiasFiltradas = idFiltro 
+        ? historias.filter(h => h.mascota === idFiltro)
+        : historias;
+
+    historiasFiltradas.forEach((h) => {
         const mascotaObj = mascotas.find((m) => m.idMascota === h.mascota);
         const vetObj = veterinarios.find((v) => v.idVeterinario === h.veterinario);
 
@@ -77,11 +82,12 @@ function render() {
     });
 
     if (total) {
-        total.textContent = historias.length;
+        total.textContent = historiasFiltradas.length;
     }
 }
 
 cargarSelects();
+cargarFiltroMascotas();
 render();
 
 function guardarEnLocalStorage() {
@@ -118,7 +124,6 @@ function editarHistoria(id) {
     
     if (historiaAEditar) {
         idHistoriaEditar = id;
-        
         
         cargarSelectsEdicion();
 
@@ -172,4 +177,25 @@ function eliminarHistoria(id) {
             render();
         }
     }
+}
+
+// Filtro por mascota en la tabla
+const filtroMascotaSelect = document.getElementById('filtroMascota');
+
+// Opciones en el selector de filtro
+function cargarFiltroMascotas() {
+    if (filtroMascotaSelect) {
+        filtroMascotaSelect.innerHTML = '<option value="">Todas las mascotas</option>';
+        mascotas.forEach((m) => {
+            filtroMascotaSelect.innerHTML += `<option value="${m.idMascota}">${m.nombreMascota}</option>`;
+        });
+    }
+}
+
+// Cambios en el filtro de la tabla
+if (filtroMascotaSelect) {
+    filtroMascotaSelect.addEventListener('change', (e) => {
+        const idMascotaSeleccionada = e.target.value;
+        render(idMascotaSeleccionada);
+    });
 }
