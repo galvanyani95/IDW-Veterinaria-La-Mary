@@ -65,7 +65,7 @@ function render(idFiltro = '') {
     if (!listadoHistorias) return;
     listadoHistorias.innerHTML = '';
 
-    // Filtrar historias si se seleccionó una mascota específica
+    // filtrar historial si se seleccionó una mascota específica
     const historiasFiltradas = idFiltro 
         ? historias.filter(h => h.mascota === idFiltro)
         : historias;
@@ -74,8 +74,16 @@ function render(idFiltro = '') {
         const mascotaObj = mascotas.find((m) => m.idMascota === h.mascota);
         const vetObj = veterinarios.find((v) => v.idVeterinario === h.veterinario);
 
+        // Mostrar los primeros 8 caracteres del UUID 
+        const idCorto = h.idHistoriaClinica ? h.idHistoriaClinica.substring(0, 8) + '...' : 'N/D';
+
         listadoHistorias.innerHTML += `
             <tr>
+                <td>
+                    <span class="font-monospace text-muted small" title="${h.idHistoriaClinica}">
+                        ${idCorto}
+                    </span>
+                </td>
                 <td>${mascotaObj ? mascotaObj.nombreMascota : 'Desconocida'}</td>
                 <td>${vetObj ? vetObj.nombre : 'Desconocido'}</td>
                 <td>${new Date(h.fechaHora).toLocaleString()}</td>
