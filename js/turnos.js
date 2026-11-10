@@ -67,7 +67,14 @@ const selectMascota = document.getElementById('mascota');
 const selectVeterinario = document.getElementById('veterinario');
 
 const formularioEditar = document.getElementById('form-editar-turno');
-const modalEditar = new bootstrap.Modal(document.getElementById('modal-editar-turno'));
+
+const elementoModal = document.getElementById('modal-editar-turno');
+
+const modalEditar = elementoModal
+    ? bootstrap.Modal.getOrCreateInstance(elementoModal)
+    : null;
+
+
 const inputEditarId = document.getElementById('editarIdTurno');
 const inputEditarFechaHora = document.getElementById('editarFechaHora');
 const selectEditarMascota = document.getElementById('editarMascota');
@@ -97,10 +104,24 @@ function cargarSelects() {
             `<option value="${v.idVeterinario}">${escapar(v.nombre)} - ${escapar(v.especializacion)}</option>`
         ).join('');
 
-    selectMascota.innerHTML = opcionesMascotas;
-    selectEditarMascota.innerHTML = opcionesMascotas;
-    selectVeterinario.innerHTML = opcionesVeterinarios;
-    selectEditarVeterinario.innerHTML = opcionesVeterinarios;
+    // Desplegables del formulario principal
+    if (selectMascota) {
+        selectMascota.innerHTML = opcionesMascotas;
+    }
+
+    if (selectVeterinario) {
+        selectVeterinario.innerHTML = opcionesVeterinarios;
+    }
+
+    // Desplegables del formulario de edición
+    if (selectEditarMascota) {
+        selectEditarMascota.innerHTML = opcionesMascotas;
+    }
+
+    if (selectEditarVeterinario) {
+        selectEditarVeterinario.innerHTML = opcionesVeterinarios;
+    }
+
 }
 
 // ===== Validación =====
@@ -173,9 +194,15 @@ function render() {
                     <button type="button" class="btn btn-warning btn-sm me-2" data-accion="editar" data-id="${turno.idTurno}">
                         <i class="bi bi-pencil-square"></i> Editar
                     </button>
+                    
+                    <button type="button" class="btn btn-success btn-sm me-2" data-accion="imprimir" data-id="${turno.idTurno}">
+                        <i class="bi bi-printer"></i> Imprimir
+                    </button>
+
                     <button type="button" class="btn btn-danger btn-sm" data-accion="eliminar" data-id="${turno.idTurno}">
                         <i class="bi bi-trash"></i> Eliminar
                     </button>
+
                 </td>
             </tr>
         `).join('');
@@ -247,11 +274,22 @@ formulario.addEventListener('submit', (evento) => {
 // ===== Edición =====
 function editarTurno(id) {
     const turno = turnos.find((t) => t.idTurno === id);
-    if (!turno) return;
+
+    if (!turno) {
+        alert('No se encontró el turno.');
+        return;
+    }
+
+    if (!modalEditar) {
+        alert('No se encontró el modal de edición.');
+        return;
+    }
+
 
     cargarSelects();
     idTurnoEditar = id;
-    if (inputEditarId) inputEditarId.value = turno.idTurno;
+    
+    inputEditarId.value = turno.idTurno;
     inputEditarFechaHora.value = turno.fechaHora;
     selectEditarMascota.value = turno.idMascota;
     selectEditarVeterinario.value = turno.idVeterinario;
@@ -259,7 +297,9 @@ function editarTurno(id) {
     modalEditar.show();
 }
 
-formularioEditar.addEventListener('submit', (evento) => {
+
+if (formularioEditar) {
+    formularioEditar.addEventListener('submit', (evento) => {
     evento.preventDefault();
 
     const turno = turnos.find((t) => t.idTurno === idTurnoEditar);
@@ -290,6 +330,141 @@ formularioEditar.addEventListener('submit', (evento) => {
     modalEditar.hide();
     idTurnoEditar = null;
 });
+}
+
+// ===== Imprimir =====
+
+function imprimirComprobante(id) {
+    const turno = turnos.find(t => t.idTurno === id);
+
+    if (!turno) {
+        alert('No se encontró el turno.');
+        return;
+    }
+
+    const mascota = obtenerMascotas().find(
+        m => m.idMascota === turno.idMascota
+    );
+
+    const veterinario = obtenerVeterinarios().find(
+        v => v.idVeterinario === turno.idVeterinario
+    );
+
+    if (!mascota || !veterinario) {
+        alert('No se encontraron los datos de la mascota o veterinario.');
+        return;
+    }
+
+    const ventana = window.open('', '_blank');
+
+    if (!ventana) {
+        alert('Permití las ventanas emergentes para imprimir el comprobante.');
+        return;
+    }
+
+    ventana.document.write(`
+        <!DOCTYPE html>
+        <html lang="es">
+        <head>
+            <meta charset="UTF-8">
+            <title>Comprobante de turno</title>
+
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    padding: 35px;
+                    color: #333;
+                }
+
+                .comprobante {
+                    max-width: 600px;
+                    margin: auto;
+                    border: 2px solid #198754;
+                    padding: 30px;
+                    border-radius: 10px;
+                }
+
+                h1 {
+                    color: #198754;
+                    text-align: center;
+                }
+
+                h3 {
+                    text-align: center;
+                    margin-bottom: 30px;
+                }
+
+                .dato {
+                    padding: 12px;
+                    border-bottom: 1px solid #ddd;
+                }
+
+                .pie {
+                    text-align: center;
+                    margin-top: 35px;
+                    font-size: 14px;
+                }
+
+                @media print {
+                    body {
+                        padding: 0;
+                    }
+                }
+            </style>
+        </head>
+
+        <body>
+            <div class="comprobante">
+
+                <h1>Veterinaria La Mary</h1>
+                <h3>COMPROBANTE DE TURNO</h3>
+
+                <div class="dato">
+                    <strong>N° de turno:</strong>
+                    ${escapar(turno.idTurno)}
+                </div>
+
+                <div class="dato">
+                    <strong>Fecha y hora:</strong>
+                    ${escapar(formatearFecha(turno.fechaHora))}
+                </div>
+
+                <div class="dato">
+                    <strong>Mascota:</strong>
+                    ${escapar(mascota.nombreMascota)}
+                </div>
+
+                <div class="dato">
+                    <strong>Dueño/a:</strong>
+                    ${escapar(mascota.nombreDuenio)}
+                </div>
+
+                <div class="dato">
+                    <strong>Veterinario:</strong>
+                    ${escapar(veterinario.nombre)}
+                </div>
+
+                <div class="pie">
+                    <p>¡Gracias por confiar en Veterinaria La Mary!</p>
+                    <p>Conserve este comprobante para su consulta.</p>
+                </div>
+
+            </div>
+
+            <script>
+                window.onload = function() {
+                    window.print();
+                };
+            <\/script>
+        </body>
+        </html>
+    `);
+
+    ventana.document.close();
+}
+
+
+
 
 // ===== Baja =====
 function eliminarTurno(id) {
@@ -311,8 +486,14 @@ listado.addEventListener('click', (evento) => {
     const boton = evento.target.closest('button[data-accion]');
     if (!boton) return;
 
-    if (boton.dataset.accion === 'editar') editarTurno(boton.dataset.id);
-    if (boton.dataset.accion === 'eliminar') eliminarTurno(boton.dataset.id);
+    const id = boton.dataset.id;
+
+    if (boton.dataset.accion === 'editar') editarTurno(id);
+    
+    if (boton.dataset.accion === 'imprimir') imprimirComprobante(id);
+
+    if (boton.dataset.accion === 'eliminar') eliminarTurno(id);
+
 });
 
 buscador.addEventListener('input', render);
