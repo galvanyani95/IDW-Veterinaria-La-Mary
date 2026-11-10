@@ -1,4 +1,4 @@
-
+// let para poder modificar el array global si es necesario
 let historias = JSON.parse(localStorage.getItem('historiasClinicas')) || [];
 const mascotas = JSON.parse(localStorage.getItem('mascotas')) || [];
 const veterinarios = JSON.parse(localStorage.getItem('veterinarios')) || [];
@@ -9,6 +9,7 @@ const formulario = document.getElementById('form-historia');
 const formularioEditar = document.getElementById('form-editar');
 const selectMascota = document.getElementById('selectMascota');
 const selectVeterinario = document.getElementById('selectVeterinario');
+const filtroMascotaSelect = document.getElementById('filtroMascota');
 
 const modalEditar = new bootstrap.Modal(document.getElementById('modal-editar'));
 let idHistoriaEditar;
@@ -50,6 +51,16 @@ function cargarSelectsEdicion() {
     }
 }
 
+// Cargar opciones en el selector de filtro
+function cargarFiltroMascotas() {
+    if (filtroMascotaSelect) {
+        filtroMascotaSelect.innerHTML = '<option value="">Todas las mascotas</option>';
+        mascotas.forEach((m) => {
+            filtroMascotaSelect.innerHTML += `<option value="${m.idMascota}">${m.nombreMascota}</option>`;
+        });
+    }
+}
+
 function render(idFiltro = '') {
     if (!listadoHistorias) return;
     listadoHistorias.innerHTML = '';
@@ -86,6 +97,7 @@ function render(idFiltro = '') {
     }
 }
 
+// Inicialización de datos al cargar la página
 cargarSelects();
 cargarFiltroMascotas();
 render();
@@ -176,19 +188,6 @@ function eliminarHistoria(id) {
             guardarEnLocalStorage();
             render();
         }
-    }
-}
-
-// Filtro por mascota en la tabla
-const filtroMascotaSelect = document.getElementById('filtroMascota');
-
-// Opciones en el selector de filtro
-function cargarFiltroMascotas() {
-    if (filtroMascotaSelect) {
-        filtroMascotaSelect.innerHTML = '<option value="">Todas las mascotas</option>';
-        mascotas.forEach((m) => {
-            filtroMascotaSelect.innerHTML += `<option value="${m.idMascota}">${m.nombreMascota}</option>`;
-        });
     }
 }
 
