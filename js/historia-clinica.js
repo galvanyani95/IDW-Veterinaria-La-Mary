@@ -88,6 +88,7 @@ function render(idFiltro = '') {
                 <td>${vetObj ? vetObj.nombre : 'Desconocido'}</td>
                 <td>${new Date(h.fechaHora).toLocaleString()}</td>
                 <td>${h.observaciones}</td>
+                <td class="text-center text-nowrap" style="min-width: 170px;">
                 <td class="text-center">
                     <button class="btn btn-danger btn-sm me-2" onclick="eliminarHistoria('${h.idHistoriaClinica}')">
                         <i class="bi bi-trash"></i> Eliminar
