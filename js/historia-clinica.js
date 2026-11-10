@@ -88,14 +88,18 @@ function render(idFiltro = '') {
                 <td>${vetObj ? vetObj.nombre : 'Desconocido'}</td>
                 <td>${new Date(h.fechaHora).toLocaleString()}</td>
                 <td>${h.observaciones}</td>
-                <td class="text-center text-nowrap" style="min-width: 170px;">
-                <td class="text-center">
-                    <button class="btn btn-danger btn-sm me-2" onclick="eliminarHistoria('${h.idHistoriaClinica}')">
-                        <i class="bi bi-trash"></i> Eliminar
-                    </button>
-                    <button class="btn btn-warning btn-sm" onclick="editarHistoria('${h.idHistoriaClinica}')">
-                        <i class="bi bi-pencil-square"></i> Editar
-                    </button>
+
+
+               <td class="text-center" style="min-width: 170px;">
+                    <!-- Contenedor flex para mantenerlos siempre lado a lado -->
+                    <div class="d-flex justify-content-center gap-1">
+                        <button class="btn btn-danger btn-sm" onclick="eliminarHistoria('${h.idHistoriaClinica}')">
+                            <i class="bi bi-trash"></i> Eliminar
+                        </button>
+                        <button class="btn btn-warning btn-sm" onclick="editarHistoria('${h.idHistoriaClinica}')">
+                            <i class="bi bi-pencil-square"></i> Editar
+                        </button>
+                    </div>
                 </td>
             </tr>
         `;
