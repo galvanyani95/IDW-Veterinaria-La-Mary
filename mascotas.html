@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
     <link rel="icon" href="img/logo.png" type="image/png"/>
+    <link rel="stylesheet" href="css/mascotas.css">
     <script src="js/sesion.js" defer></script>
     <script src="js/mascotas.js" defer></script>
 
@@ -51,6 +52,7 @@
       <h1 class="h2 mb-4">Gestión de mascotas</h1>
 
       <div class="row g-4">
+        <!-- Formulario de alta de mascotas -->
         <section class="col-12 col-lg-5">
           <div class="card bg-success-subtle">
             <div
@@ -69,8 +71,8 @@
                     id="nombreMascota"
                     name="nombreMascota"
                     placeholder="Ej: Firulais"
-                    pattern="[A-Za-zÁÉÍÓÚáéíóúÜüÑñ\s]{3,10}"
-                    title="Ingresá solamente letras y espacios"
+                    pattern="[A-Za-zÁÉÍÓÚáéíóúÜüÑñ\s]{2,25}"
+                    title="Ingresá solamente letras y espacios (entre 2 y 25 caracteres)"
                     required
                   />
                 </div>
@@ -85,8 +87,8 @@
                     id="nombreDuenio"
                     name="nombreDuenio"
                     placeholder="Ej: María Pérez"
-                    pattern="[A-Za-zÁÉÍÓÚáéíóúÜüÑñ\s]{3,10}"
-                    title="Ingresá solamente letras y espacios"
+                    pattern="[A-Za-zÁÉÍÓÚáéíóúÜüÑñ\s]{2,25}"
+                    title="Ingresá solamente letras y espacios (entre 2 y 25 caracteres)"
                     required
                   />
                 </div>
@@ -99,8 +101,8 @@
                     id="color"
                     name="color"
                     placeholder="Ej: Marrón con blanco"
-                    pattern="[A-Za-zÁÉÍÓÚáéíóúÜüÑñ\s]{3,10}"
-                    title="Ingresá solamente letras y espacios"
+                    pattern="[A-Za-zÁÉÍÓÚáéíóúÜüÑñ\s]{2,25}"
+                    title="Ingresá solamente letras y espacios (entre 2 y 25 caracteres)"
                     required
                   />
                 </div>
@@ -114,6 +116,7 @@
                       id="edad"
                       name="edad"
                       min="0"
+                      max="35"
                       step="1"
                       placeholder="Ej: 3"
                       required
@@ -126,9 +129,10 @@
                       class="form-control"
                       id="peso"
                       name="peso"
-                      min="0"
-                      step="1"
-                      placeholder="Ej: 12"
+                      min="0.01"
+                      max="400"
+                      step="0.01"
+                      placeholder="Ej: 12.5"
                       required
                     />
                   </div>
@@ -160,17 +164,20 @@
           </div>
         </section>
 
+        <!-- Tabla de mascotas registradas -->
         <section class="col-12 col-lg-7">
           <div class="card bg-success-subtle">
-            <div
-              class="card-header d-flex flex-wrap justify-content-between align-items-center gap-2"
-            >
+            <div class="card-header d-flex flex-wrap justify-content-between align-items-center gap-2" >
               <h2 class="h5 mb-0">Mascotas registradas</h2>
               <span class="badge text-bg-secondary">
                 Total: <span id="total">0</span>
               </span>
             </div>
             <div class="card-body">
+
+              <input type="text" id="buscador" class="form-control mb-3"
+                     placeholder="Buscar por mascota o dueño" aria-label="Buscar mascota" />
+
               <div class="table-responsive rounded-3">
                 <table class="table table-hover align-middle tabla-mascotas">
                   <thead>
@@ -194,6 +201,7 @@
       </div>
     </main>
 
+    <!-- Modal de edición: se abre desde el boton Editar de cada fila -->
     <div
       class="modal fade"
       id="modal-editar"
@@ -225,8 +233,8 @@
                   class="form-control"
                   id="editarNombreMascota"
                   name="editarNombreMascota"
-                  pattern="[A-Za-zÁÉÍÓÚáéíóúÜüÑñ\s]{3,10}"
-                  title="Ingresá solamente letras y espacios"
+                  pattern="[A-Za-zÁÉÍÓÚáéíóúÜüÑñ\s]{2,25}"
+                  title="Ingresá solamente letras y espacios (entre 2 y 25 caracteres)"
                   required
                 />
               </div>
@@ -239,8 +247,8 @@
                   class="form-control"
                   id="editarNombreDuenio"
                   name="editarNombreDuenio"
-                  pattern="[A-Za-zÁÉÍÓÚáéíóúÜüÑñ\s]{3,10}"
-                  title="Ingresá solamente letras y espacios"
+                  pattern="[A-Za-zÁÉÍÓÚáéíóúÜüÑñ\s]{2,25}"
+                  title="Ingresá solamente letras y espacios (entre 2 y 25 caracteres)"
                   required
                 />
               </div>
@@ -251,8 +259,8 @@
                   class="form-control"
                   id="editarColor"
                   name="editarColor"
-                  pattern="[A-Za-zÁÉÍÓÚáéíóúÜüÑñ\s]{3,10}"
-                  title="Ingresá solamente letras y espacios"
+                  pattern="[A-Za-zÁÉÍÓÚáéíóúÜüÑñ\s]{2,25}"
+                  title="Ingresá solamente letras y espacios (entre 2 y 25 caracteres)"
                   required
                 />
               </div>
@@ -265,6 +273,7 @@
                     id="editarEdad"
                     name="editarEdad"
                     min="0"
+                    max="35"
                     step="1"
                     required
                   />
@@ -276,9 +285,10 @@
                     class="form-control"
                     id="editarPeso"
                     name="editarPeso"
-                    min="0"
-                    step="1"
-                    placeholder="Ej: 1500"
+                    min="0.01"
+                    max="400"
+                    step="0.01"
+                    placeholder="Ej: 12.5"
                     required
                   />
                 </div>
