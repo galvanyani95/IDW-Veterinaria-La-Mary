@@ -1,17 +1,26 @@
-const mascotas= JSON.parse(localStorage.getItem('mascotas')) || [];
+// Se cargan las mascotas guardadas en LocalStorage; si no hay, se empieza con un array vacío
+const mascotas = JSON.parse(localStorage.getItem('mascotas')) || [];
 
 const listadoMascotas = document.getElementById('listado-mascotas');
 const total = document.getElementById('total');
+const buscador = document.getElementById('buscador');
 const formulario = document.getElementById('form-mascota');
 const formularioEditar = document.getElementById('form-editar');
 
 const modalEditar = new bootstrap.Modal(document.getElementById('modal-editar'));
 let idMascotaEditar;
 
+// Dibuja la tabla (aplicando el filtro del buscador) y actualiza el total
 function render() {
     listadoMascotas.innerHTML = '';
 
-    mascotas.forEach((mascota) => {
+    const texto = buscador.value.trim().toLowerCase();
+    const lista = mascotas.filter((m) =>
+        m.nombreMascota.toLowerCase().includes(texto) ||
+        m.nombreDuenio.toLowerCase().includes(texto)
+    );
+
+    lista.forEach((mascota) => {
         listadoMascotas.innerHTML += `
             <tr>
                 <td>${mascota.nombreDuenio}</td>
@@ -19,7 +28,7 @@ function render() {
                 <td>${mascota.color}</td>
                 <td>${mascota.edad}</td>
                 <td>${mascota.peso}</td>
-                <td><img src="${mascota.Imagen || 'img/naranjoso.jpg'}" alt="Imagen de la mascota" class="img-fluid" style="max-width: 50px; height: auto;"></td>    
+                <td><img src="img/naranjoso.jpg" alt="Imagen de la mascota" class="img-fluid" style="max-width: 50px; height: auto;"></td>
                 <td class="text-center">
                     <button class="btn btn-danger btn-sm me-2" onclick="eliminarMascota('${mascota.idMascota}')">
                         <i class="bi bi-trash"></i> Eliminar
@@ -32,6 +41,7 @@ function render() {
         `;
     });
 
+    // El total cuenta todas las mascotas registradas, no solo las filtradas
     total.textContent = mascotas.length;
 }
 
@@ -63,7 +73,7 @@ formulario.addEventListener('submit', (evento) => {
 
 function editarMascota(id) {
     const mascotaAEditar = mascotas.find((mascota) => mascota.idMascota === id);
-    
+
     if (mascotaAEditar) {
         idMascotaEditar = id;
 
@@ -106,7 +116,7 @@ function eliminarMascota(id) {
 
     if (confirmar) {
         const indice = mascotas.findIndex((mascota) => mascota.idMascota === id);
-        
+
         if (indice !== -1) {
             mascotas.splice(indice, 1);
             guardarEnLocalStorage();
@@ -114,3 +124,6 @@ function eliminarMascota(id) {
         }
     }
 }
+
+// Cada vez que se escribe en el buscador se vuelve a dibujar la tabla filtrada
+buscador.addEventListener('input', render);
